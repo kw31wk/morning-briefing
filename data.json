@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-15T17:46:20.964127+00:00",
+  "updated": "2026-10-15T17:55:59.171938+00:00",
   "status": "Environment Canada warning feed checked; municipal emergency notices are linked separately.",
   "world": [
     {
@@ -169,31 +169,32 @@
   ],
   "alerts": [
     {
-      "title": "Canada Post: national shutdown ended, rotating strikes may still disrupt service",
-      "summary": "Canada Post said employees would return on October 11 as CUPW moved from a nationwide strike to rotating strikes. Do not treat this as confirmation that all strike action is cancelled; check the latest service and labour updates before relying on delivery.",
-      "url": "https://www.canadapost-postescanada.ca/cpc/en/our-company/news-and-media/corporate-news/news-release-list.page",
-      "source": "Canada Post · official labour updates",
-      "severity": "priority"
-    },
-    {
-      "title": "Richmond election: vote Saturday, October 17",
-      "summary": "Richmond's municipal and school election is this Saturday. The City says mail-ballot requests by phone close October 15 at 3:00 p.m.; ballots can no longer be returned by Canada Post and must reach the Chief Election Officer by 8:00 p.m. on October 17. Check your voting location and official instructions.",
-      "url": "https://richmond.ca/city-hall/elections.htm",
+      "title": "Richmond election: mail-ballot phone deadline today",
+      "summary": "Deadline today: call 604-276-4100 by 3 p.m. to request a mail-ballot package. Online requests and Canada Post returns have ended. Election Day is Saturday, October 17; completed ballots must reach City Hall or a voting place by 8 p.m.",
+      "url": "https://www.richmond.ca/city-hall/elections.htm",
       "source": "City of Richmond · official election information",
       "severity": "priority"
     },
     {
-      "title": "No alerts in effect, Metro Vancouver - southwest including Richmond and Delta",
-      "summary": "No alerts in effect.",
-      "url": "https://weather.gc.ca/warnings/report_e.html?bcrm31",
-      "source": "Environment and Climate Change Canada · weather alerts",
-      "severity": "weather"
+      "title": "Richmond weather: plan for the next three days",
+      "summary": "Today: cloudy, high 18°C / low 7°C, precipitation chance up to 0% Friday: drizzle, high 21°C / low 10°C, precipitation chance up to 25% Saturday: heavy rain, high 15°C / low 8°C, precipitation chance up to 81% Check the official forecast before heading out with the kids.",
+      "url": "https://weather.gc.ca/city/pages/bc-74_metric_e.html",
+      "source": "Environment Canada forecast · Richmond",
+      "severity": "priority"
     },
     {
-      "title": "Richmond municipal alerts",
-      "summary": "Check the City of Richmond's official alert information for local notices and instructions.",
-      "url": "https://www.richmond.ca/services/public-safety/emergency-preparedness/notify-me.htm",
-      "source": "City of Richmond · official alert information"
+      "title": "Canada Post: verify delivery before relying on mail",
+      "summary": "Canada Post's current corporate news page does not confirm a new nationwide shutdown. Because labour and delivery conditions can change, check the latest official service notice before sending time-sensitive mail or relying on delivery dates.",
+      "url": "https://www.canadapost-postescanada.ca/cpc/en/our-company/news-and-media/corporate-news/news-release-list.page",
+      "source": "Canada Post · official updates",
+      "severity": "priority"
+    },
+    {
+      "title": "Downtown Vancouver: expect concert crowds near BC Place",
+      "summary": "Bruno Mars has Vancouver shows on October 14, 16, 17, 20 and 21. TransLink advises passengers to allow extra travel time around Stadium–Chinatown Station and BC Place during concert periods.",
+      "url": "https://www.translink.ca/news/2026/october/bruno%20mars%20takes%20the%20mic%20at%20stadium%20chinatown%20skytrain%20station",
+      "source": "TransLink · October 14 service advisory",
+      "severity": "priority"
     }
   ],
   "events": []
