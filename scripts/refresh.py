@@ -96,9 +96,9 @@ def article_image(url):
   with urllib.request.urlopen(req,timeout=4) as response:
    page=response.read(250000).decode("utf-8","ignore")
   for pattern in [
-   r'<meta[^>]+property=["\\']og:image["\\'][^>]+content=["\\']([^"\\']+)["\\']',
-   r'<meta[^>]+content=["\\']([^"\\']+)["\\'][^>]+property=["\\']og:image["\\']',
-   r'<meta[^>]+name=["\\']twitter:image["\\'][^>]+content=["\\']([^"\\']+)["\\']'
+   """<meta[^>]+property=["']og:image["'][^>]+content=["']([^"']+)["']"""
+   """<meta[^>]+content=["']([^"']+)["'][^>]+property=["']og:image["']"""
+   """<meta[^>]+name=["']twitter:image["'][^>]+content=["']([^"']+)["']"""
   ]:
    m=re.search(pattern,page,re.I)
    if m:
