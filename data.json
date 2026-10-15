@@ -1,8 +1,144 @@
 {
-  "updated": null,
-  "status": "Waiting for first scheduled refresh",
-  "world": [],
-  "local": [],
-  "hk": [],
-  "alerts": []
+  "updated": "2026-10-15T08:05:42.430733+00:00",
+  "status": "RSS sources checked; verify stories at publisher",
+  "world": [
+    {
+      "title": "Uncertainty is the point: The growing drone campaign stalking NATO’s skies",
+      "summary": "Hundreds of ambiguous drones have been increasingly spotted over sensitive sites in NATO countries. It has the hallmarks of a deliberate campaign to stoke fear and uncertainty.",
+      "url": "https://www.cbc.ca/news/world/growing-drone-campaign-nato-9.7381020?cmp=rss",
+      "published": "2026-10-15T08:00:00+00:00",
+      "source": "CBC World"
+    },
+    {
+      "title": "What to know about the deadly U.K. tiger attack — and the 'offensive' video shared by Trump",
+      "summary": "The family of a man mauled to death by a tiger at a U.K. wildlife park on Saturday is pleading with people to stop sharing footage of the attack online, calling it \"deeply offensive\" and painful. The statement from the family of 23-year-old William Chapman cam",
+      "url": "https://www.cbc.ca/news/world/man-killed-tiger-uk-trump-post-9.7380019?cmp=rss",
+      "published": "2026-10-14T20:39:27+00:00",
+      "source": "CBC World"
+    },
+    {
+      "title": "Jane Doe’s family home hit with swatting attack after Cornell rape allegations: lawyer",
+      "summary": "Lawyer Thomas Giuffra, who is representing Jane Doe in her civil lawsuit, said the incident is part of escalating threats against the woman, who is identified only as Jane Doe in court documents but has faced concerted efforts to publish her identity online.",
+      "url": "https://www.cbc.ca/radio/thecurrent/cornell-7-rape-jane-doe-thomas-giuffra-9.7380651?cmp=rss",
+      "published": "2026-10-14T20:22:41+00:00",
+      "source": "CBC World"
+    },
+    {
+      "title": "Police investigating report of sexual assault at University of Chicago frat party",
+      "summary": "Police are investigating a woman's report that she was sexually assaulted during a fraternity party near the University of Chicago campus, an allegation that comes at a time of heightened awareness of sexual violence on college campuses.",
+      "url": "https://www.cbc.ca/news/world/university-of-chicago-frat-party-alleged-sexual-assault-9.7381090?cmp=rss",
+      "published": "2026-10-14T22:40:59+00:00",
+      "source": "CBC World"
+    },
+    {
+      "title": "New White House press secretary Katie Zacharia faces mounting questions about resume",
+      "summary": "The new White House press secretary is facing mounting questions about her background and resume as she transitions into her role as the public face of the Trump administration.",
+      "url": "https://www.cbc.ca/news/world/katie-zacharia-resume-questions-9.7381095?cmp=rss",
+      "published": "2026-10-15T00:02:03+00:00",
+      "source": "CBC World"
+    },
+    {
+      "title": "Musk says US government may be behind slowdown of Ukraine drone speeds",
+      "summary": "Ukraine says Starlink access has improved but it is still facing speed limits which are disrupting its battlefield \"missions\".",
+      "url": "https://www.bbc.co.uk/news/articles/c8wy9veedgygo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-15T04:30:08+00:00",
+      "source": "BBC World"
+    },
+    {
+      "title": "Student protesters attack government buildings in Albania",
+      "summary": "Buildings were set alight on the second day of demonstrations from thousands of students who want better university conditions and job prospects.",
+      "url": "https://www.bbc.co.uk/news/articles/cq80zk5k2ep4o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-14T20:29:05+00:00",
+      "source": "BBC World"
+    },
+    {
+      "title": "Retired US generals call on Pentagon to cancel 'barbaric' execution livestream",
+      "summary": "Livestreaming the execution of Nidal Hasan \"will taint the honor of the military that employs it, and a nation that allows it,\" 72 former officers said in a letter.",
+      "url": "https://www.bbc.co.uk/news/articles/cmp3gnngv3e9o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-15T02:26:07+00:00",
+      "source": "BBC World"
+    }
+  ],
+  "local": [
+    {
+      "title": "Vancouver Aquatic Centre 25-metre rebuild a First Nation’s land claim issue: Park Board chair",
+      "summary": "The Park Board has previously stated that in order to rebuild a 50 metre pool, the facility’s footprint would need to be expanded to meet modern safety and competition rules.",
+      "url": "https://globalnews.ca/news/12103103/vancouver-aquatic-centre-rebuild-first-nations-land-claim-issue/",
+      "published": "2026-10-15T00:46:11+00:00",
+      "source": "Global BC"
+    },
+    {
+      "title": "BC NDP election costings would see deficit fall to $12B in two years",
+      "summary": "The costings released hours ahead of the campaign's only leaders' debate show a deficit of about $12 billion by 2028/29, down from a forecast of $14 billion this fiscal year.",
+      "url": "https://globalnews.ca/news/12103092/bc-ndp-election-costings-deficit-fall-two-years/",
+      "published": "2026-10-15T00:36:38+00:00",
+      "source": "Global BC"
+    },
+    {
+      "title": "Major projects CEO faces B.C. First Nations’ frustrations over lack of consultations",
+      "summary": "First Nations in B.C. are calling on Ottawa to set national standards for Indigenous consultations on major projects, saying they were given limited time to review the proposal.",
+      "url": "https://globalnews.ca/news/12102948/major-projects-office-bc-first-nations-frustrations/",
+      "published": "2026-10-14T22:23:58+00:00",
+      "source": "Global BC"
+    },
+    {
+      "title": "WATCH: Global News Hour at 6 BC: Oct. 14",
+      "summary": "Watch the online edition of Global News Hour at 6 BC.",
+      "url": "https://globalnews.ca/news/1149299/watch-news-hour/",
+      "published": "2026-10-14T22:00:41+00:00",
+      "source": "Global BC"
+    },
+    {
+      "title": "WATCH: Global Okanagan News at 5:30 p.m. – Oct. 14",
+      "summary": "Watch the online news edition of Global Okanagan at 5:30 p.m.",
+      "url": "https://globalnews.ca/news/9913127/watch-global-okanagan-news-at-530/",
+      "published": "2026-10-14T22:00:38+00:00",
+      "source": "Global BC"
+    }
+  ],
+  "hk": [
+    {
+      "title": "New four-lane bridge opens between China and North Korea after 12-year delay",
+      "summary": "A new four-lane road bridge linking China and North Korea finally opened on Thursday, 12 years late, enabling the Asian giant and its isolated nuclear-armed neighbour to step up cross-border trade substantially. China is its neighbour&#8217;s largest trading p",
+      "url": "https://hongkongfp.com/2026/10/15/new-four-lane-bridge-opens-between-china-and-north-korea-after-12-year-delay/",
+      "published": "2026-10-15T07:40:27+00:00",
+      "source": "Hong Kong Free Press"
+    },
+    {
+      "title": "Dozens of Hong Kong Christian groups petition against tourism body’s ‘Halloween Month’ campaign",
+      "summary": "Dozens of Christian groups in Hong Kong have signed a petition against a “Halloween Month” campaign launched by the city’s tourism body on the grounds that celebrating the western ghost festival could harm the wellbeing of the next generation. The Christian gr",
+      "url": "https://hongkongfp.com/2026/10/15/dozens-of-hong-kong-christian-groups-petition-against-tourism-bodys-halloween-month-campaign/",
+      "published": "2026-10-15T04:36:49+00:00",
+      "source": "Hong Kong Free Press"
+    },
+    {
+      "title": "Hong Kong bus operators seek fare hikes of up to 17.7% amid Middle East fuel pressure",
+      "summary": "Hong Kong&#8217;s four franchised bus operators have applied for fare hikes of up to 17.7 per cent as they face &#8220;significant financial pressure&#8221; from soaring fuel prices amid the ongoing war in the Middle East. The city’s four bus operators — Kowlo",
+      "url": "https://hongkongfp.com/2026/10/15/hong-kong-bus-operators-seek-fare-hikes-of-up-to-17-7-amid-middle-east-fuel-pressure/",
+      "published": "2026-10-15T04:03:06+00:00",
+      "source": "Hong Kong Free Press"
+    },
+    {
+      "title": "Hong Kong logs 229 taxi driver offences under points system, over half involving refusal of hire",
+      "summary": "Hong Kong has recorded 229 taxi driver-related offences under a demerit points system that came into effect in 2024, with more than half involving refusal of hire, the government has said. In a written reply to lawmaker Chris Ip on Wednesday, Secretary for Tra",
+      "url": "https://hongkongfp.com/2026/10/15/hong-kong-logs-229-taxi-driver-offences-under-points-system-over-half-involving-refusal-of-hire/",
+      "published": "2026-10-14T23:30:00+00:00",
+      "source": "Hong Kong Free Press"
+    },
+    {
+      "title": "Former care home warden jailed 13 years for raping disabled female resident",
+      "summary": "A former employee at a care home run by local charity Hong Chi Association has been jailed for 13 years for repeatedly raping an intellectually disabled female resident two years ago. Chung Pui-kei was sentenced at the High Court on Wednesday morning after jud",
+      "url": "https://hongkongfp.com/2026/10/14/former-care-home-warden-jailed-13-years-for-raping-disabled-female-resident/",
+      "published": "2026-10-14T11:05:05+00:00",
+      "source": "Hong Kong Free Press"
+    }
+  ],
+  "alerts": [
+    {
+      "title": "Check local advisories before travel",
+      "summary": "No automated emergency alert feed is configured. Check official notices for time-sensitive disruptions.",
+      "url": "https://www.richmond.ca/",
+      "source": "City of Richmond"
+    }
+  ]
 }
