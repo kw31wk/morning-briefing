@@ -1,6 +1,6 @@
 {
   "updated": "2026-10-15T08:09:57.006Z",
-  "status": "Initial verified event and official alert links added; automated refresh still needs to run",
+  "status": "Event cards are date-filtered in the app; news images appear when publishers provide thumbnail URLs.",
   "world": [
     {
       "title": "Russian nuclear-powered submarine fires missiles during Pacific drills",
@@ -169,7 +169,9 @@
       "time": "10:30–11:15am",
       "summary": "Stories, songs and rhymes for ages 3–5 with an adult. This session is today; confirm details with the library.",
       "url": "https://rvalibrary.libcal.com/calendar/main",
-      "source": "Richmond Public Library"
+      "source": "Richmond Public Library",
+      "start_date": "2026-10-15",
+      "end_date": "2026-10-15"
     },
     {
       "title": "Halloween Hangout",
@@ -178,7 +180,9 @@
       "time": "1:00–3:00pm",
       "summary": "Free Halloween games, crafts and a themed show for children up to age 12. Adult participation and registration required; check availability.",
       "url": "https://www.richmond.ca/culture/calendar/special-events/halloween.htm",
-      "source": "City of Richmond"
+      "source": "City of Richmond",
+      "start_date": "2026-10-17",
+      "end_date": "2026-10-17"
     },
     {
       "title": "Halloween Spooky Science",
@@ -187,7 +191,9 @@
       "time": "10:00–11:30am",
       "summary": "Halloween-themed science for ages 6–12; listed at $14.05. Lucas is younger than the stated age range, so this may not be suitable yet.",
       "url": "https://www.richmond.ca/culture/calendar/special-events/halloween.htm",
-      "source": "City of Richmond"
+      "source": "City of Richmond",
+      "start_date": "2026-10-17",
+      "end_date": "2026-10-17"
     },
     {
       "title": "Halloween Hoot",
@@ -196,7 +202,9 @@
       "time": "10:00am–4:00pm",
       "summary": "Family-friendly Halloween-decorated Pond Trail with inflatables, nature-themed art installations and a tunnel. All ages; pumpkins available for purchase. Rain or shine; parking is limited.",
       "url": "https://www.richmond.ca/culture/calendar/special-events/halloween.htm",
-      "source": "City of Richmond"
+      "source": "City of Richmond",
+      "start_date": "2026-10-24",
+      "end_date": "2026-11-01"
     }
   ]
 }
