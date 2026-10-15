@@ -1,6 +1,10 @@
 name: Refresh morning briefing
 on:
   workflow_dispatch:
+  push:
+    paths:
+      - 'scripts/refresh.py'
+      - '.github/workflows/refresh.yml'
   schedule:
     - cron: "0 15,16 * * *"
 permissions:
@@ -19,7 +23,7 @@ jobs:
       - name: Run only at 8 AM Pacific
         id: local-time
         run: |
-          if [ "${GITHUB_EVENT_NAME}" = "workflow_dispatch" ] || [ "$(TZ=America/Vancouver date +%H)" = "08" ]; then
+          if [ "${GITHUB_EVENT_NAME}" = "workflow_dispatch" ] || [ "${GITHUB_EVENT_NAME}" = "push" ] || [ "$(TZ=America/Vancouver date +%H)" = "08" ]; then
             echo "run=true" >> "$GITHUB_OUTPUT"
           else
             echo "run=false" >> "$GITHUB_OUTPUT"
