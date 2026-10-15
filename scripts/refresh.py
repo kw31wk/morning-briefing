@@ -45,11 +45,29 @@ def parse(feedname,url,limit=6):
    desc=re.sub("<[^>]+>"," ",desc)
    desc=re.sub(r"\s+"," ",desc).strip()
    image_url=""
-   for tag in ["enclosure","{http://search.yahoo.com/mrss/}content","{http://search.yahoo.com/mrss/}thumbnail"]:
+   # Publishers expose photos through enclosure/media tags or inline RSS HTML.
+   image_tags=[
+    "enclosure",
+    "{http://search.yahoo.com/mrss/}content",
+    "{http://search.yahoo.com/mrss/}thumbnail",
+    "{http://search.yahoo.com/mrss/}group/{http://search.yahoo.com/mrss/}content",
+    "{http://search.yahoo.com/mrss/}group/{http://search.yahoo.com/mrss/}thumbnail"
+   ]
+   for tag in image_tags:
     el=it.find(tag)
     if el is not None:
      candidate=el.attrib.get("url") or el.attrib.get("href") or ""
-     if candidate.startswith("https://"): image_url=candidate; break
+     if candidate.startswith("https://") and not candidate.lower().endswith((".gif", ".svg")):
+      image_url=candidate; break
+   if not image_url:
+    html_blob=" ".join([
+     it.findtext("description") or "",
+     it.findtext("{http://purl.org/rss/1.0/modules/content/}encoded") or "",
+     it.findtext("{http://www.w3.org/2005/Atom}content") or ""
+    ])
+    match=re.search(r'<img[^>]+(?:src|data-src)=["\\']([^"\\']+)["\\']',html_blob,re.I)
+    if match and match.group(1).startswith("https://"):
+     image_url=match.group(1)
    pub=val("pubDate","published","updated","{http://www.w3.org/2005/Atom}published")
    try: published=parsedate_to_datetime(pub).astimezone(timezone.utc).isoformat() if pub else datetime.now(timezone.utc).isoformat()
    except: published=datetime.now(timezone.utc).isoformat()
@@ -139,7 +157,24 @@ data["alerts"] = weather_items + [
  {"title":"Richmond municipal alerts","summary":"Check the City of Richmond's official alert information for local notices and instructions.","url":"https://www.richmond.ca/services/public-safety/emergency-preparedness/notify-me.htm","source":"City of Richmond · official alert information"},
  {"title":"Provincial emergency alerts","summary":"Check EmergencyInfoBC for current provincial warnings. This app does not replace Alert Ready or municipal notifications.","url":"https://www.emergencyinfobc.gov.bc.ca/","source":"EmergencyInfoBC"}
 ]
-data["alerts"] = data["alerts"][:4]
+# Practical daily priorities: distinguish the end of a nationwide shutdown from
+# ongoing rotating action, and surface time-sensitive local election logistics.
+priority_items = [
+ {"title":"Canada Post: national shutdown ended, rotating strikes may still disrupt service",
+  "summary":"Canada Post said employees would return on October 11 as CUPW moved from a nationwide strike to rotating strikes. Do not treat this as confirmation that all strike action is cancelled; check the latest service and labour updates before relying on delivery.",
+  "url":"https://www.canadapost-postescanada.ca/cpc/en/our-company/news-and-media/corporate-news/news-release-list.page",
+  "source":"Canada Post · official labour updates","severity":"priority"}
+]
+today_local=datetime.now().astimezone().date()
+election_day=datetime(2026,10,17).date()
+if today_local <= election_day:
+ priority_items.append({
+  "title":"Richmond election: vote Saturday, October 17",
+  "summary":"Richmond's municipal and school election is this Saturday. The City says mail-ballot requests by phone close October 15 at 3:00 p.m.; ballots can no longer be returned by Canada Post and must reach the Chief Election Officer by 8:00 p.m. on October 17. Check your voting location and official instructions.",
+  "url":"https://richmond.ca/city-hall/elections.htm",
+  "source":"City of Richmond · official election information","severity":"priority"
+ })
+data["alerts"] = (priority_items + data["alerts"])[:4]
 data["status"] = alert_status
 with open("data.json","w",encoding="utf-8") as f: json.dump(data,f,ensure_ascii=False,indent=2)
 print("Wrote data.json", {k:len(v) for k,v in data.items() if isinstance(v,list)})
