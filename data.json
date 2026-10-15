@@ -1,7 +1,15 @@
 {
-  "updated": "2026-10-15T17:55:59.171938+00:00",
+  "updated": "2026-10-15T18:06:35.454301+00:00",
   "status": "Environment Canada warning feed checked; municipal emergency notices are linked separately.",
   "world": [
+    {
+      "title": "A mother’s touch helps premature babies grow strong in Gaza",
+      "summary": "At Nasser Hospital, a kangaroo mother care pilot programme helps vulnerable newborns.",
+      "url": "https://www.aljazeera.com/features/2026/10/15/a-mothers-touch-helps-premature-babies-grow-strong-in-gaza?traffic_source=rss",
+      "published": "2026-10-15T17:43:01+00:00",
+      "source": "Al Jazeera",
+      "image": "https://www.aljazeera.com/wp-content/uploads/2026/10/873A1063-copy-1792081894.jpg?resize=1920%2C1440"
+    },
     {
       "title": "Pope Leo resumes work in hospital while recovering from surgery",
       "summary": "Catholic leader met top Vatican aide, as doctors say recovery proceeding after lung surgery to remove cancerous growth.",
@@ -31,14 +39,6 @@
       "summary": "Saudi-led coalition accuses Houthis of obtaining missile parts from regional states.",
       "url": "https://www.aljazeera.com/news/2026/10/15/houthis-target-yemens-presidential-palace-in-aden-with-missiles?traffic_source=rss",
       "published": "2026-10-15T16:50:42+00:00",
-      "source": "Al Jazeera",
-      "image": "https://www.aljazeera.com/wp-content/uploads/2026/10/reuters_6ad1005c-1792082012.jpg?resize=1920%2C1440"
-    },
-    {
-      "title": "Albania’s PM dismisses calls to resign as student protests spread",
-      "summary": "Prime Minister Edi Rama condemns &#039;chaos&#039; as protests continue for third day in the capital and spread to other cities.",
-      "url": "https://www.aljazeera.com/news/2026/10/15/albanias-pm-dismisses-calls-to-resign-as-student-protests-spread?traffic_source=rss",
-      "published": "2026-10-15T16:41:30+00:00",
       "source": "Al Jazeera",
       "image": ""
     },
@@ -177,7 +177,7 @@
     },
     {
       "title": "Richmond weather: plan for the next three days",
-      "summary": "Today: cloudy, high 18°C / low 7°C, precipitation chance up to 0% Friday: drizzle, high 21°C / low 10°C, precipitation chance up to 25% Saturday: heavy rain, high 15°C / low 8°C, precipitation chance up to 81% Check the official forecast before heading out with the kids.",
+      "summary": "Today: cloudy, high 18°C / low 7°C, precipitation chance up to 0% Friday: drizzle, high 21°C / low 10°C, precipitation chance up to 26% Saturday: heavy rain, high 15°C / low 8°C, precipitation chance up to 81% Check the official forecast before heading out with the kids.",
       "url": "https://weather.gc.ca/city/pages/bc-74_metric_e.html",
       "source": "Environment Canada forecast · Richmond",
       "severity": "priority"
@@ -197,5 +197,81 @@
       "severity": "priority"
     }
   ],
-  "events": []
+  "events": [
+    {
+      "title": "Family Storytime",
+      "start_date": "2026-10-17",
+      "end_date": "2026-10-17",
+      "date": "Oct 17",
+      "date_label": "OCT 17 · SAT",
+      "venue": "Richmond Public Library · Brighouse Branch",
+      "time": "10:30–11:00 am",
+      "summary": "Songs, stories, rhymes and activities. Drop-in; caregiver stays with child.",
+      "ages": "Ages 3–5",
+      "price": "Free · Drop-in",
+      "url": "https://yourlibrary.bibliocommons.com/v2/events?types=5ade5d8c3f3e9525004dca8e",
+      "source": "Richmond Public Library",
+      "image": "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&w=900&q=80"
+    },
+    {
+      "title": "Family Storytime",
+      "start_date": "2026-10-18",
+      "end_date": "2026-10-18",
+      "date": "Oct 18",
+      "date_label": "OCT 18 · SUN",
+      "venue": "Richmond Public Library · Ironwood Branch",
+      "time": "10:30–11:00 am",
+      "summary": "Songs, stories, rhymes and activities for young children. Caregiver must attend.",
+      "ages": "Family · preschool",
+      "price": "Free · Drop-in",
+      "url": "https://yourlibrary.bibliocommons.com/v2/events?types=5ade5d8c3f3e9525004dca8e",
+      "source": "Richmond Public Library",
+      "image": "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=900&q=80"
+    },
+    {
+      "title": "Family Storytime",
+      "start_date": "2026-10-18",
+      "end_date": "2026-10-18",
+      "date": "Oct 18",
+      "date_label": "OCT 18 · SUN",
+      "venue": "Richmond Public Library · Main Library",
+      "time": "3:30–4:00 pm",
+      "summary": "Interactive family storytime with songs, rhymes, books and activities.",
+      "ages": "Infants–5 years with adult",
+      "price": "Free · check listing",
+      "url": "https://rvalibrary.libcal.com/calendar/main",
+      "source": "Richmond Public Library · LibCal",
+      "image": "https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=900&q=80"
+    },
+    {
+      "title": "Together Time",
+      "start_date": "2026-10-19",
+      "end_date": "2026-10-19",
+      "date": "Oct 19",
+      "date_label": "OCT 19 · MON",
+      "venue": "General Currie Elementary · Currie Early Learning Centre",
+      "time": "9:30–11:30 am",
+      "summary": "Play, painting, crafts, science, yoga and circle time with Early Childhood Educators. First come, first served; capacity limited.",
+      "ages": "Ages 3–5 · 1 adult per child",
+      "price": "Free",
+      "url": "https://www.richmondkids.ca/en/families/calendar/together-time-ages-3-5-8?occurrenceID=623465",
+      "source": "Richmond Child Care Resource & Referral",
+      "image": "https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?auto=format&fit=crop&w=900&q=80"
+    },
+    {
+      "title": "Preschool Storytime",
+      "start_date": "2026-10-22",
+      "end_date": "2026-10-22",
+      "date": "Oct 22",
+      "date_label": "OCT 22 · THU",
+      "venue": "Richmond Public Library · Main Library",
+      "time": "10:30–11:15 am",
+      "summary": "Interactive storytime with books, songs, rhymes and activities.",
+      "ages": "Ages 3–5 with adult",
+      "price": "Free · check listing",
+      "url": "https://rvalibrary.libcal.com/event/16756793",
+      "source": "Richmond Public Library · LibCal",
+      "image": "https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=900&q=80"
+    }
+  ]
 }
