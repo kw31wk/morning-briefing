@@ -164,14 +164,30 @@ def importance(item, section):
  except: pass
  return score
 
+def topic_key(item, section):
+ text=(item.get("title","")+" "+item.get("summary","")).lower()
+ if section=="world":
+  if any(t in text for t in ["ukraine","zelensky","russian refinery","russia's oil","russia’s oil"]): return "ukraine-russia-war"
+  if any(t in text for t in ["yemen","houthi","aden"]): return "yemen-conflict"
+  if any(t in text for t in ["trump","midterm","republican","democrat","u.s. election","us election"]): return "us-politics"
+  if any(t in text for t in ["iran","oil prices","fuel prices","middle east conflict"]): return "iran-energy"
+ if section=="local":
+  # Do not let a world story syndicated by a local outlet masquerade as local news.
+  local_terms=["richmond","vancouver","burnaby","surrey","british columbia","b.c.","translink","canada line","steveston","metro vancouver","bc ndp","canada post","city council","school district","mayoral","housing","aquatic centre","highway","construction","ferry","skytrain"]
+  if not any(t in text for t in local_terms): return "not-local"
+ if section=="hk":
+  local_terms=["香港","港府","港股","李家超","立法會","恒指","房屋","巴士","學校","警方","本港","大埔","北都","港人","港鐵","房委會","港元","旅客","香港人","hong kong","hongkong"]
+  if not any(t in text for t in local_terms): return "not-hong-kong"
+ return ""
 for section in ("world","local","hk"):
  data[section].sort(key=lambda item: importance(item,section),reverse=True)
- # Keep at most one story per publisher where possible; do not pad if there are fewer than four strong, fresh stories.
- selected=[]; used=set()
+ selected=[]; topics=set()
  for item in data[section]:
-  publisher=item.get("source","")
-  if publisher in used and len(data[section])-len(selected)>1: continue
-  selected.append(item); used.add(publisher)
+  topic=topic_key(item,section)
+  if topic=="not-local" or topic=="not-hong-kong": continue
+  if topic and topic in topics: continue
+  selected.append(item)
+  if topic: topics.add(topic)
   if len(selected)==4: break
  data[section]=selected
 
