@@ -1,62 +1,62 @@
 {
-  "updated": "2026-10-15T08:05:42.430733+00:00",
+  "updated": "2026-10-15T08:07:53.036364+00:00",
   "status": "RSS sources checked; verify stories at publisher",
   "world": [
+    {
+      "title": "Russian nuclear-powered submarine fires missiles during Pacific drills",
+      "summary": "Russia&#039;s Pacific Fleet has test-fired cruise missiles from a nuclear-powered submarine, striking a target 1,200km away.",
+      "url": "https://www.aljazeera.com/video/newsfeed/2026/10/15/10-15-clip-russia-nuclear-submarines?traffic_source=rss",
+      "published": "2026-10-15T07:44:35+00:00",
+      "source": "Al Jazeera"
+    },
+    {
+      "title": "Backlash in Kashmir over proposal for uniform Friday sermons across mosques",
+      "summary": "Political and religious critics accuse India&#039;s Modi government of curbing Kashmir&#039;s freedom of religion and expression.",
+      "url": "https://www.aljazeera.com/news/2026/10/15/backlash-in-kashmir-over-proposal-for-uniform-friday-sermons-across-mosques?traffic_source=rss",
+      "published": "2026-10-15T07:21:36+00:00",
+      "source": "Al Jazeera"
+    },
+    {
+      "title": "Clock ticking for leap second: Why timekeeping could change forever",
+      "summary": "Timekeepers add a leap second occasionally to keep our clocks and the Earth&#039;s rotation in tune. That could now change.",
+      "url": "https://www.aljazeera.com/news/2026/10/15/clock-ticking-for-leap-second-why-timekeeping-could-change-forever?traffic_source=rss",
+      "published": "2026-10-15T07:16:50+00:00",
+      "source": "Al Jazeera"
+    },
+    {
+      "title": "From Morocco to South Africa, Israel election watched closely across Africa",
+      "summary": "October 27 vote could test whether Israel&#039;s ties with African countries withstand the fallout from the war on Gaza.",
+      "url": "https://www.aljazeera.com/news/2026/10/15/from-morocco-to-south-africa-israel-election-watched-closely-across-africa?traffic_source=rss",
+      "published": "2026-10-15T06:46:52+00:00",
+      "source": "Al Jazeera"
+    },
+    {
+      "title": "G20 finance ministers, central bankers gather amid fallout from Iran war",
+      "summary": "Officials meet in Thailand as conflict drives energy prices higher and casts uncertainty over global economy.",
+      "url": "https://www.aljazeera.com/economy/2026/10/15/g20-finance-ministers-central-bankers-gather-amid-fallout-from-iran-war?traffic_source=rss",
+      "published": "2026-10-15T06:16:46+00:00",
+      "source": "Al Jazeera"
+    },
+    {
+      "title": "How high inflation is hurting Trump's Republicans in U.S. midterm campaign",
+      "summary": "For nearly a year, U.S. President Donald Trump has been trying to persuade voters not to get riled up over rising prices, but polls suggest voters aren't buying his sales pitch, with respondents giving him low marks on the cost of living and disapproving of ho",
+      "url": "https://www.cbc.ca/news/world/trump-midterms-inflation-cost-of-living-gas-prices-9.7380647?cmp=rss",
+      "published": "2026-10-15T08:00:00+00:00",
+      "source": "CBC World"
+    },
+    {
+      "title": "Starlink restrictions may hamper Ukraine's war effort. But the country can adapt, experts say",
+      "summary": "Starlink and the military-grade version known as Starshield have been integral to Ukraine's war effort against Russia. But now, according to Ukrainian officials, the military has lost some access to the system.",
+      "url": "https://www.cbc.ca/news/world/ukraine-starlink-elon-musk-9.7380594?cmp=rss",
+      "published": "2026-10-15T08:00:00+00:00",
+      "source": "CBC World"
+    },
     {
       "title": "Uncertainty is the point: The growing drone campaign stalking NATO’s skies",
       "summary": "Hundreds of ambiguous drones have been increasingly spotted over sensitive sites in NATO countries. It has the hallmarks of a deliberate campaign to stoke fear and uncertainty.",
       "url": "https://www.cbc.ca/news/world/growing-drone-campaign-nato-9.7381020?cmp=rss",
       "published": "2026-10-15T08:00:00+00:00",
       "source": "CBC World"
-    },
-    {
-      "title": "What to know about the deadly U.K. tiger attack — and the 'offensive' video shared by Trump",
-      "summary": "The family of a man mauled to death by a tiger at a U.K. wildlife park on Saturday is pleading with people to stop sharing footage of the attack online, calling it \"deeply offensive\" and painful. The statement from the family of 23-year-old William Chapman cam",
-      "url": "https://www.cbc.ca/news/world/man-killed-tiger-uk-trump-post-9.7380019?cmp=rss",
-      "published": "2026-10-14T20:39:27+00:00",
-      "source": "CBC World"
-    },
-    {
-      "title": "Jane Doe’s family home hit with swatting attack after Cornell rape allegations: lawyer",
-      "summary": "Lawyer Thomas Giuffra, who is representing Jane Doe in her civil lawsuit, said the incident is part of escalating threats against the woman, who is identified only as Jane Doe in court documents but has faced concerted efforts to publish her identity online.",
-      "url": "https://www.cbc.ca/radio/thecurrent/cornell-7-rape-jane-doe-thomas-giuffra-9.7380651?cmp=rss",
-      "published": "2026-10-14T20:22:41+00:00",
-      "source": "CBC World"
-    },
-    {
-      "title": "Police investigating report of sexual assault at University of Chicago frat party",
-      "summary": "Police are investigating a woman's report that she was sexually assaulted during a fraternity party near the University of Chicago campus, an allegation that comes at a time of heightened awareness of sexual violence on college campuses.",
-      "url": "https://www.cbc.ca/news/world/university-of-chicago-frat-party-alleged-sexual-assault-9.7381090?cmp=rss",
-      "published": "2026-10-14T22:40:59+00:00",
-      "source": "CBC World"
-    },
-    {
-      "title": "New White House press secretary Katie Zacharia faces mounting questions about resume",
-      "summary": "The new White House press secretary is facing mounting questions about her background and resume as she transitions into her role as the public face of the Trump administration.",
-      "url": "https://www.cbc.ca/news/world/katie-zacharia-resume-questions-9.7381095?cmp=rss",
-      "published": "2026-10-15T00:02:03+00:00",
-      "source": "CBC World"
-    },
-    {
-      "title": "Musk says US government may be behind slowdown of Ukraine drone speeds",
-      "summary": "Ukraine says Starlink access has improved but it is still facing speed limits which are disrupting its battlefield \"missions\".",
-      "url": "https://www.bbc.co.uk/news/articles/c8wy9veedgygo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-15T04:30:08+00:00",
-      "source": "BBC World"
-    },
-    {
-      "title": "Student protesters attack government buildings in Albania",
-      "summary": "Buildings were set alight on the second day of demonstrations from thousands of students who want better university conditions and job prospects.",
-      "url": "https://www.bbc.co.uk/news/articles/cq80zk5k2ep4o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-14T20:29:05+00:00",
-      "source": "BBC World"
-    },
-    {
-      "title": "Retired US generals call on Pentagon to cancel 'barbaric' execution livestream",
-      "summary": "Livestreaming the execution of Nidal Hasan \"will taint the honor of the military that employs it, and a nation that allows it,\" 72 former officers said in a letter.",
-      "url": "https://www.bbc.co.uk/news/articles/cmp3gnngv3e9o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-15T02:26:07+00:00",
-      "source": "BBC World"
     }
   ],
   "local": [
@@ -97,6 +97,20 @@
     }
   ],
   "hk": [
+    {
+      "title": "中國和印度不算老友，尼泊爾想團結他們應對氣候威脅",
+      "summary": "尼泊爾能否促成這兩個區域大國攜手應對喜馬拉雅山脈共同面臨的氣候威脅？",
+      "url": "https://www.bbc.com/zhongwen/articles/c674pq1e0dxqo/trad?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-15T05:50:29+00:00",
+      "source": "BBC 中文（繁體）"
+    },
+    {
+      "title": "美國中期選舉2026：贏會贏在哪裏，輸會輸在哪裏？",
+      "summary": "BBC深入分析將界定特朗普總統任期最後兩年的選舉前景，包括關鍵民調、選戰以及議題。",
+      "url": "https://www.bbc.com/zhongwen/articles/c6lyezge4xywo/trad?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-15T00:20:29+00:00",
+      "source": "BBC 中文（繁體）"
+    },
     {
       "title": "New four-lane bridge opens between China and North Korea after 12-year delay",
       "summary": "A new four-lane road bridge linking China and North Korea finally opened on Thursday, 12 years late, enabling the Asian giant and its isolated nuclear-armed neighbour to step up cross-border trade substantially. China is its neighbour&#8217;s largest trading p",
