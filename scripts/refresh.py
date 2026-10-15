@@ -125,7 +125,7 @@ def weather_alerts():
     if el is not None: link=el.attrib.get("href","")
    desc=(it.findtext("description") or it.findtext("{http://www.w3.org/2005/Atom}summary") or "").strip()
    desc=re.sub("<[^>]+>"," ",desc)
-   desc=re.sub(r"\\s+"," ",desc).strip()
+   desc=re.sub(r"\s+"," ",desc).strip()
    if title and title.lower() not in ("weather alerts","warnings and watches"):
     found.append({"title":title,"summary":desc[:300] or "Open the official alert for details and instructions.","url":link if link.startswith("http") else "https://weather.gc.ca/","source":"Environment and Climate Change Canada · weather alerts","severity":"weather"})
   if found: return found[:3], "Environment Canada warning feed checked; municipal emergency notices are linked separately."
