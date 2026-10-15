@@ -6,16 +6,21 @@ from email.utils import parsedate_to_datetime
 
 FEEDS = {
  "world": [
-  ("Al Jazeera","https://www.aljazeera.com/xml/rss/all.xml"),
+  ("Reuters World","https://feeds.reuters.com/Reuters/worldNews"),
+  ("AP Top News","https://apnews.com/hub/ap-top-news?output=rss"),
+  ("BBC World","https://feeds.bbci.co.uk/news/world/rss.xml"),
   ("CBC World","https://www.cbc.ca/webfeed/rss/rss-world"),
-  ("BBC World","https://feeds.bbci.co.uk/news/world/rss.xml")
+  ("Al Jazeera","https://www.aljazeera.com/xml/rss/all.xml")
  ],
  "local": [
   ("CBC British Columbia","https://www.cbc.ca/webfeed/rss/rss-britishcolumbia"),
   ("City of Richmond","https://www.richmond.ca/rss/news.xml"),
-  ("Global BC","https://globalnews.ca/bc/feed/")
+  ("Global BC","https://globalnews.ca/bc/feed/"),
+  ("Vancouver Is Awesome","https://www.vancouverisawesome.com/rss")
  ],
  "hk": [
+  ("RTHK 香港本地新聞","https://rthk.hk/rthk/news/rss/c_expressnews_clocal.xml"),
+  ("RTHK 大中華新聞","https://rthk.hk/rthk/news/rss/c_expressnews_greaterchina.xml"),
   ("BBC 中文（繁體）","https://feeds.bbci.co.uk/zhongwen/trad/rss.xml"),
   ("Hong Kong Free Press","https://hongkongfp.com/feed/")
  ]
@@ -69,8 +74,13 @@ def parse(feedname,url,limit=6):
     if match and match.group(1).startswith("https://"):
      image_url=match.group(1)
    pub=val("pubDate","published","updated","{http://www.w3.org/2005/Atom}published")
-   try: published=parsedate_to_datetime(pub).astimezone(timezone.utc).isoformat() if pub else datetime.now(timezone.utc).isoformat()
-   except: published=datetime.now(timezone.utc).isoformat()
+   try:
+    if not pub: raise ValueError("missing publication date")
+    try: parsed=parsedate_to_datetime(pub)
+    except (TypeError,ValueError): parsed=datetime.fromisoformat(pub.replace("Z","+00:00"))
+    if parsed.tzinfo is None: parsed=parsed.replace(tzinfo=timezone.utc)
+    published=parsed.astimezone(timezone.utc).isoformat()
+   except: published=""
    if title and link.startswith("http"):
     out.append({"title":title,"summary":desc[:260],"url":link,"published":published,"source":feedname,"image":image_url})
    if len(out)>=limit: break
@@ -79,14 +89,27 @@ def parse(feedname,url,limit=6):
  return out
 data={"updated":datetime.now(timezone.utc).isoformat(),"status":"RSS sources checked; verify stories at publisher","world":[],"local":[],"hk":[],"alerts":[]}
 for section,feeds in FEEDS.items():
+ per_feed=[]
  for name,url in feeds:
-  data[section].extend(parse(name,url,5))
- # deduplicate by normalized headline
+  per_feed.append(parse(name,url,10))
+ # Interleave feeds so the first publisher cannot dominate the whole section.
+ combined=[]
+ for i in range(10):
+  for feed_items in per_feed:
+   if i<len(feed_items): combined.append(feed_items[i])
  seen=set(); uniq=[]
- for item in data[section]:
+ cutoff=datetime.now(timezone.utc)-timedelta(hours=30)
+ for item in combined:
   key=re.sub(r"[^a-z0-9]","",item["title"].lower())
-  if key not in seen: seen.add(key); uniq.append(item)
- data[section]=uniq[:8]
+  if key in seen: continue
+  seen.add(key)
+  try:
+   stamp=datetime.fromisoformat(item.get("published","").replace("Z","+00:00"))
+   if stamp.tzinfo is None: stamp=stamp.replace(tzinfo=timezone.utc)
+   if stamp < cutoff: continue
+  except: continue
+  uniq.append(item)
+ data[section]=uniq
 
 # Many RSS feeds omit image enclosures but publisher pages expose a social/preview image.
 # Fetch only the first four articles per section and use a short timeout to keep refresh reliable.
@@ -110,24 +133,85 @@ def article_image(url):
  return ""
 
 for section in ("world","local","hk"):
- for item in data[section][:4]:
+ for item in data[section][:8]:
   if not item.get("image"):
    item["image"]=article_image(item["url"])
 
-# Curated, date-checked child-friendly events found on official Richmond library / City calendars.
+# Rank headlines by editorial significance rather than simply taking the first RSS items.
+# Scores are transparent heuristics; freshness and publisher diversity are enforced above.
+def importance(item, section):
+ title=(item.get("title","")+" "+item.get("summary","")).lower()
+ score=0
+ groups={
+  "critical": ["killed","dead","death toll","attack","missile","airstrike","invasion","war","ceasefire","earthquake","flood","hurricane","wildfire","outbreak","pandemic","emergency","crash","explosion","hostage","sanction","strike"],
+  "politics": ["president","prime minister","government","election","parliament","congress","court","minister","policy","vote","shutdown","impeach"],
+  "economy": ["inflation","interest rate","central bank","recession","economy","jobs","unemployment","trade","tariff","oil price","stock market","budget","bank"],
+  "technology": ["cyberattack","data breach","artificial intelligence","ai ","technology","starlink"]
+ }
+ for group,terms in groups.items():
+  if any(term in title for term in terms): score += {"critical":5,"politics":3,"economy":3,"technology":2}[group]
+ if section=="local" and any(t in title for t in ["richmond","vancouver","translink","british columbia","b.c.","bc ","school","wildfire","flood","election","canada post","housing","health","cyberattack"]): score+=4
+ if section=="hk":
+  if item.get("source","").startswith("RTHK 香港本地新聞"): score+=4
+  if any(t in title for t in ["香港","港府","港股","李家超","立法會","恒指","房屋","巴士","學校","警方","本港","大埔","北都","港人"]): score+=5
+  if any(t in title for t in ["美國中期選舉","烏克蘭","特朗普","美國總統"]): score-=2
+ if section=="world" and any(t in title for t in ["ukraine","iran","russia","israel","gaza","china","north korea","trump","global","united nations"]): score+=2
+ if item.get("source","").startswith("Reuters"): score+=2
+ if item.get("source","").startswith("AP"): score+=2
+ try:
+  age=(datetime.now(timezone.utc)-datetime.fromisoformat(item["published"].replace("Z","+00:00"))).total_seconds()/3600
+  score += max(0,2-age/15)
+ except: pass
+ return score
+
+for section in ("world","local","hk"):
+ data[section].sort(key=lambda item: importance(item,section),reverse=True)
+ # Keep at most one story per publisher where possible; do not pad if there are fewer than four strong, fresh stories.
+ selected=[]; used=set()
+ for item in data[section]:
+  publisher=item.get("source","")
+  if publisher in used and len(data[section])-len(selected)>1: continue
+  selected.append(item); used.add(publisher)
+  if len(selected)==4: break
+ data[section]=selected
+
+# Curated family events from current official listings and the farm's live 2026 hours.
+# Refresh dates relative to the current date so expired one-off events drop out automatically.
 def scrape_events():
- today=datetime.now().date()
- candidates=[
-  {"title":"Family Storytime","start_date":"2026-10-17","end_date":"2026-10-17","date":"Oct 17","date_label":"OCT 17 · SAT","venue":"Richmond Public Library · Brighouse Branch","time":"10:30–11:00 am","summary":"Songs, stories, rhymes and activities. Drop-in; caregiver stays with child.","ages":"Ages 3–5","price":"Free · Drop-in","url":"https://yourlibrary.bibliocommons.com/v2/events?types=5ade5d8c3f3e9525004dca8e","source":"Richmond Public Library","image":"https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&w=900&q=80"},
-  {"title":"Family Storytime","start_date":"2026-10-18","end_date":"2026-10-18","date":"Oct 18","date_label":"OCT 18 · SUN","venue":"Richmond Public Library · Ironwood Branch","time":"10:30–11:00 am","summary":"Songs, stories, rhymes and activities for young children. Caregiver must attend.","ages":"Family · preschool","price":"Free · Drop-in","url":"https://yourlibrary.bibliocommons.com/v2/events?types=5ade5d8c3f3e9525004dca8e","source":"Richmond Public Library","image":"https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=900&q=80"},
-  {"title":"Family Storytime","start_date":"2026-10-18","end_date":"2026-10-18","date":"Oct 18","date_label":"OCT 18 · SUN","venue":"Richmond Public Library · Main Library","time":"3:30–4:00 pm","summary":"Interactive family storytime with songs, rhymes, books and activities.","ages":"Infants–5 years with adult","price":"Free · check listing","url":"https://rvalibrary.libcal.com/calendar/main","source":"Richmond Public Library · LibCal","image":"https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=900&q=80"},
-  {"title":"Together Time","start_date":"2026-10-19","end_date":"2026-10-19","date":"Oct 19","date_label":"OCT 19 · MON","venue":"General Currie Elementary · Currie Early Learning Centre","time":"9:30–11:30 am","summary":"Play, painting, crafts, science, yoga and circle time with Early Childhood Educators. First come, first served; capacity limited.","ages":"Ages 3–5 · 1 adult per child","price":"Free","url":"https://www.richmondkids.ca/en/families/calendar/together-time-ages-3-5-8?occurrenceID=623465","source":"Richmond Child Care Resource & Referral","image":"https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?auto=format&fit=crop&w=900&q=80"},
-  {"title":"Preschool Storytime","start_date":"2026-10-22","end_date":"2026-10-22","date":"Oct 22","date_label":"OCT 22 · THU","venue":"Richmond Public Library · Main Library","time":"10:30–11:15 am","summary":"Interactive storytime with books, songs, rhymes and activities.","ages":"Ages 3–5 with adult","price":"Free · check listing","url":"https://rvalibrary.libcal.com/event/16756793","source":"Richmond Public Library · LibCal","image":"https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=900&q=80"}
- ]
+ today=datetime.now().astimezone().date()
+ def next_weekday(day, include_today=True):
+  delta=(day-today.weekday())%7
+  if delta==0 and not include_today: delta=7
+  return today+timedelta(days=delta)
+ def event_date(d):
+  return d.strftime("%Y-%m-%d")
+ def label(d):
+  return d.strftime("%b %d · %a").upper()
+ candidates=[]
+ # Richmond Country Farms confirms daily pumpkin-patch operation through Oct 31, 2026.
+ patch_end=datetime(2026,10,31).date()
+ if today<=patch_end:
+  d=today
+  candidates.append({"title":"Pumpkin Patch at Richmond Country Farms","start_date":event_date(d),"end_date":event_date(patch_end),"date":d.strftime("%b %d"),"date_label":label(d),"venue":"12900 Steveston Highway, Richmond","time":"Weekdays 9 am–4 pm · Weekends 10 am–4:30 pm","summary":"Tractor-wagon ride, pumpkin picking, corn maze, farm animals and seasonal decorations. Open daily through October 31; last entry is 4 pm weekdays and 4:30 pm weekends.","ages":"All ages · family outing","price":"$15 + tax weekdays · $20 + tax weekends; ages 2 and under free","url":"https://richmondcountryfarms.com/pages/hours-location","source":"Richmond Country Farms · official hours","image":"https://images.unsplash.com/photo-1509622905150-fa66d390c9e1?auto=format&fit=crop&w=900&q=80"})
+ # Richmond Fire-Rescue confirms this public family-friendly event for Oct 17, 2026.
+ fire_date=datetime(2026,10,17).date()
+ if today<=fire_date<=today+timedelta(days=7):
+  candidates.append({"title":"Kidde Canada & Richmond Fire-Rescue","start_date":event_date(fire_date),"end_date":event_date(fire_date),"date":fire_date.strftime("%b %d"),"date_label":label(fire_date),"venue":"Home Depot Richmond","time":"10 am–2 pm","summary":"Meet Richmond Fire-Rescue's team and learn about home fire safety at this public community event.","ages":"Family-friendly","price":"Free · drop-in","url":"https://firerescue.richmond.ca/event-calendar/list/?posts_per_page=108","source":"Richmond Fire-Rescue · official event calendar","image":"https://images.unsplash.com/photo-1599708153386-62bf8f035c90?auto=format&fit=crop&w=900&q=80"})
+ # Official Richmond Public Library listings repeat these programs on Saturdays.
+ saturday=next_weekday(5)
+ if today<=saturday<=today+timedelta(days=7):
+  candidates.append({"title":"Family Storytime (Cambie Library)","start_date":event_date(saturday),"end_date":event_date(saturday),"date":saturday.strftime("%b %d"),"date_label":label(saturday),"venue":"Richmond Public Library · Cambie Branch","time":"10:30–11 am","summary":"Songs, stories, rhymes and more. Drop-in; a parent or caregiver must attend.","ages":"Preschool · family","price":"Free · drop-in","url":"https://yourlibrary.bibliocommons.com/v2/events?series=6a99bdea4cb69d003e258991","source":"Richmond Public Library · official event listing","image":"https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&w=900&q=80"})
+  candidates.append({"title":"DUPLO Free Play (Brighouse Library)","start_date":event_date(saturday),"end_date":event_date(saturday),"date":saturday.strftime("%b %d"),"date_label":label(saturday),"venue":"Richmond Public Library · Brighouse Branch","time":"11–11:30 am","summary":"Drop-in building play with DUPLO bricks. No registration needed; caregiver stays with child.","ages":"Ages 2–5","price":"Free · drop-in","url":"https://yourlibrary.bibliocommons.com/v2/events?audiences=5ab2cc261cc59e4b41421b0d","source":"Richmond Public Library · official event listing","image":"https://images.unsplash.com/photo-1587654780291-39c9404d746b?auto=format&fit=crop&w=900&q=80"})
+ # Together Time is listed by Richmond Child Care Resource & Referral for preschoolers.
+ monday=next_weekday(0)
+ if today<=monday<=today+timedelta(days=7):
+  candidates.append({"title":"Together Time (Ages 3–5)","start_date":event_date(monday),"end_date":event_date(monday),"date":monday.strftime("%b %d"),"date_label":label(monday),"venue":"General Currie Elementary · Currie Early Learning Centre","time":"9:30–11:30 am","summary":"Play, painting, crafts, science, yoga and circle time with Early Childhood Educators. First come, first served; capacity limited.","ages":"Ages 3–5 · adult participation required","price":"Free","url":"https://www.richmondkids.ca/en/families/calendar/together-time-ages-3-5-8?occurrenceID=623465","source":"Richmond Child Care Resource & Referral","image":"https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?auto=format&fit=crop&w=900&q=80"})
+ # Only retain future events in the requested horizon; daily farm visit remains a current option.
  events=[]
  for e in candidates:
   if datetime.fromisoformat(e["end_date"]).date()>=today and datetime.fromisoformat(e["start_date"]).date()<=today+timedelta(days=7):
    events.append(e)
+ events.sort(key=lambda e:(e["start_date"],0 if "Pumpkin Patch" in e["title"] else 1))
  return events
 data["events"]=scrape_events()
 # Environment and Climate Change Canada official weather-warning feed for Richmond/Delta.
@@ -180,7 +264,7 @@ if today_local <= election_day:
   "title":"Richmond election: mail-ballot phone deadline " + ("today" if today_local == datetime(2026,10,15).date() else "passed; vote October 17"),
   "summary":election_summary,
   "url":"https://www.richmond.ca/city-hall/elections.htm",
-  "source":"City of Richmond · official election information","severity":"priority"
+  "source":"City of Richmond · official election information","severity":"priority","image":"https://images.unsplash.com/photo-1540910419892-4a36d2c3266c?auto=format&fit=crop&w=900&q=80"
  })
 
 # A current, location-specific forecast helps with practical plans.
@@ -207,7 +291,7 @@ try:
    "title":"Richmond weather: plan for the next three days",
    "summary":" ".join(forecast_lines)+ " Check the official forecast before heading out with the kids.",
    "url":"https://weather.gc.ca/city/pages/bc-74_metric_e.html",
-   "source":"Environment Canada forecast · Richmond","severity":"priority"
+   "source":"Environment Canada forecast · Richmond","severity":"priority","image":"https://images.unsplash.com/photo-1515694346937-94d85e41e6f0?auto=format&fit=crop&w=900&q=80"
   })
 except Exception as e:
  print("Forecast summary unavailable:",str(e))
@@ -217,7 +301,7 @@ priority_items.append({
  "title":"Canada Post: verify delivery before relying on mail",
  "summary":"Canada Post's current corporate news page does not confirm a new nationwide shutdown. Because labour and delivery conditions can change, check the latest official service notice before sending time-sensitive mail or relying on delivery dates.",
  "url":"https://www.canadapost-postescanada.ca/cpc/en/our-company/news-and-media/corporate-news/news-release-list.page",
- "source":"Canada Post · official updates","severity":"priority"
+ "source":"Canada Post · official updates","severity":"priority","image":"https://images.unsplash.com/photo-1577705998148-6da4f3963bc8?auto=format&fit=crop&w=900&q=80"
 })
 
 # Useful local travel heads-up for major downtown events.
@@ -226,7 +310,7 @@ if today_local <= datetime(2026,10,21).date() and today_local >= datetime(2026,1
   "title":"Downtown Vancouver: expect concert crowds near BC Place",
   "summary":"Bruno Mars has Vancouver shows on October 14, 16, 17, 20 and 21. TransLink advises passengers to allow extra travel time around Stadium–Chinatown Station and BC Place during concert periods.",
   "url":"https://www.translink.ca/news/2026/october/bruno%20mars%20takes%20the%20mic%20at%20stadium%20chinatown%20skytrain%20station",
-  "source":"TransLink · October 14 service advisory","severity":"priority"
+  "source":"TransLink · October 14 service advisory","severity":"priority","image":"https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=900&q=80"
  })
 
 # Fill remaining slots with real official alert sources, never more than four items.
