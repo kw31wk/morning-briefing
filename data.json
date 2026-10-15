@@ -1,38 +1,22 @@
 {
-  "updated": "2026-10-15T18:06:35.454301+00:00",
+  "updated": "2026-10-15T18:12:01.240948+00:00",
   "status": "Environment Canada warning feed checked; municipal emergency notices are linked separately.",
   "world": [
     {
-      "title": "A mother’s touch helps premature babies grow strong in Gaza",
-      "summary": "At Nasser Hospital, a kangaroo mother care pilot programme helps vulnerable newborns.",
-      "url": "https://www.aljazeera.com/features/2026/10/15/a-mothers-touch-helps-premature-babies-grow-strong-in-gaza?traffic_source=rss",
-      "published": "2026-10-15T17:43:01+00:00",
-      "source": "Al Jazeera",
-      "image": "https://www.aljazeera.com/wp-content/uploads/2026/10/873A1063-copy-1792081894.jpg?resize=1920%2C1440"
+      "title": "Russia accuses Ukraine of attacking oil refinery after Zelensky says strikes to resume",
+      "summary": "Ukraine's president says a pause on striking energy sites is over following fresh Russian attacks.",
+      "url": "https://www.bbc.co.uk/news/articles/cqwyrnwd9dw1o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-15T16:50:18+00:00",
+      "source": "BBC World",
+      "image": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/9b54/live/4c6fe8b0-c899-11f1-a64c-550be9e3c66b.jpg"
     },
     {
-      "title": "Pope Leo resumes work in hospital while recovering from surgery",
-      "summary": "Catholic leader met top Vatican aide, as doctors say recovery proceeding after lung surgery to remove cancerous growth.",
-      "url": "https://www.aljazeera.com/news/2026/10/15/pope-leo-resumes-work-in-hospital-while-recovering-from-surgery?traffic_source=rss",
-      "published": "2026-10-15T17:25:09+00:00",
-      "source": "Al Jazeera",
-      "image": "https://www.aljazeera.com/wp-content/uploads/2026/10/reuters_6acb92de-1791726302.jpg?resize=1920%2C1440"
-    },
-    {
-      "title": "DR Congo protests Formula 1’s ‘indefensible’ decision to race in Rwanda",
-      "summary": "Formula One returns to Africa for the first time since 1993, but DRC slams decision to stage race in Rwanda.",
-      "url": "https://www.aljazeera.com/sports/2026/10/15/congo-protests-formula-1s-indefensible-decision-to-race-in-rwanda?traffic_source=rss",
-      "published": "2026-10-15T17:13:17+00:00",
-      "source": "Al Jazeera",
-      "image": "https://www.aljazeera.com/wp-content/uploads/2026/10/AP26286525167875-1792080396.jpg?resize=1920%2C1440"
-    },
-    {
-      "title": "Dying in Detention",
-      "summary": "Fault Lines investigates the soaring death rates in immigration detention centres following President Trump’s crackdown.",
-      "url": "https://www.aljazeera.com/video/fault-lines/2026/10/15/dying-in-detention?traffic_source=rss",
-      "published": "2026-10-15T17:00:00+00:00",
-      "source": "Al Jazeera",
-      "image": "https://www.aljazeera.com/wp-content/uploads/2026/10/image-1792065984.jpg?resize=1920%2C1080&quality=80"
+      "title": "Ukraine resumes attacks on Russian refineries, as Zelenskyy expresses frustration with U.S.",
+      "summary": "Ukraine has resumed ‌its attacks on Russian refineries with a strike at an installation in the Ryazan region, the regional governor said Thursday, after Ukrainian President Volodymyr Zelenskyy voiced his anger at a \"dangerous\" withdrawal of U.S. intelligence.",
+      "url": "https://www.cbc.ca/news/world/russia-ukraine-war-day-1695-9.7381475?cmp=rss",
+      "published": "2026-10-15T11:11:36+00:00",
+      "source": "CBC World",
+      "image": "https://i.cbc.ca/ais/c1bb350c-521a-44fa-88c0-1279a133d484,1792060398825/full/max/0/default.jpg?im=Crop%2Crect%3D%280%2C0%2C4674%2C2629%29%3B"
     },
     {
       "title": "Houthis target Yemen’s presidential palace in Aden with missiles",
@@ -41,41 +25,9 @@
       "published": "2026-10-15T16:50:42+00:00",
       "source": "Al Jazeera",
       "image": ""
-    },
-    {
-      "title": "Pentagon will not livestream execution of Fort Hood shooter: Trump",
-      "summary": "U.S. President Donald Trump, after bipartisan backlash, says the Pentagon won't livestream the firing squad execution of the Fort Hood shooter after all.",
-      "url": "https://www.cbc.ca/news/world/execution-fort-hood-shooter-trump-9.7381733?cmp=rss",
-      "published": "2026-10-15T14:28:05+00:00",
-      "source": "CBC World",
-      "image": "https://i.cbc.ca/ais/711738b5-14e2-4991-9916-04b5eec52fdf,1792074249149/full/max/0/default.jpg?im=Crop%2Crect%3D%280%2C54%2C5088%2C2862%29%3B"
-    },
-    {
-      "title": "How high inflation is hurting Trump's Republicans in U.S. midterm campaign",
-      "summary": "For nearly a year, U.S. President Donald Trump has been trying to persuade voters not to get riled up over rising prices, but polls suggest voters aren't buying his sales pitch, with respondents giving him low marks on the cost of living and disapproving of ho",
-      "url": "https://www.cbc.ca/news/world/trump-midterms-inflation-cost-of-living-gas-prices-9.7380647?cmp=rss",
-      "published": "2026-10-15T08:00:00+00:00",
-      "source": "CBC World",
-      "image": "https://i.cbc.ca/ais/98cec85d-bafd-42d5-917c-2766675724f6,1792024020375/full/max/0/default.jpg?im=Crop%2Crect%3D%280%2C106%2C4032%2C2268%29%3B"
-    },
-    {
-      "title": "Starlink restrictions would hamper Ukraine's war effort. But the country can adapt, experts say",
-      "summary": "Starlink and the military-grade version known as Starshield have been integral to Ukraine's war effort against Russia. But earlier this week, according to Ukrainian officials, the military lost some access to the system.",
-      "url": "https://www.cbc.ca/news/world/ukraine-starlink-elon-musk-9.7380594?cmp=rss",
-      "published": "2026-10-15T08:00:00+00:00",
-      "source": "CBC World",
-      "image": "https://i.cbc.ca/ais/a2d5f3c8-488a-4bbf-acb2-c017ca102b32,1792050388379/full/max/0/default.jpg?im=Crop%2Crect%3D%280%2C0%2C3794%2C2134%29%3B"
     }
   ],
   "local": [
-    {
-      "title": "Fry and Sim face off in Vancouver, but other mayoral candidates reject spoiler label",
-      "summary": "Interest in the Vancouver race appears high. The City of Vancouver says more than 103,000 people have voted in advance, up 60 per cent from roughly 65,000 voters in 2022.",
-      "url": "https://globalnews.ca/news/12103468/vancouver-mayoral-debate/",
-      "published": "2026-10-15T12:43:32+00:00",
-      "source": "Global BC",
-      "image": "https://globalnews.ca/wp-content/uploads/2026/10/5f825bd525b1c8745d25da7808e5725574ddb71efe2fc10ddf719fbcec65869c.jpg?quality=65&strip=all&w=720&h=480&crop=1"
-    },
     {
       "title": "Burnaby school district says cyberattack may have leaked student, parent info",
       "summary": "The Burnaby School District says in a notice that the ransomware attack it suffered on Sept. 21 affected school websites and portals, internal network services and phone lines.",
@@ -85,62 +37,22 @@
       "image": "https://globalnews.ca/wp-content/uploads/2026/10/fdbfb34c33ba427467415e049ec748cb652f0efed35dc1a667e1fdd92551a40d.jpg?quality=65&strip=all&w=720&h=480&crop=1"
     },
     {
-      "title": "Vancouver Aquatic Centre 25-metre rebuild a First Nation’s land claim issue: Park Board chair",
-      "summary": "The Park Board has previously stated that in order to rebuild a 50 metre pool, the facility’s footprint would need to be expanded to meet modern safety and competition rules.",
-      "url": "https://globalnews.ca/news/12103103/vancouver-aquatic-centre-rebuild-first-nations-land-claim-issue/",
-      "published": "2026-10-15T00:46:11+00:00",
-      "source": "Global BC",
-      "image": "https://globalnews.ca/wp-content/uploads/2025/08/8a864b73e58973e70500b28b69145cf2d5ce46f5918a5732d679e1274a00423f.jpg?quality=65&strip=all&w=720&h=480&crop=1"
-    },
-    {
-      "title": "BC NDP election costings would see deficit fall to $12B in two years",
-      "summary": "The costings released hours ahead of the campaign's only leaders' debate show a deficit of about $12 billion by 2028/29, down from a forecast of $14 billion this fiscal year.",
-      "url": "https://globalnews.ca/news/12103092/bc-ndp-election-costings-deficit-fall-two-years/",
-      "published": "2026-10-15T00:36:38+00:00",
-      "source": "Global BC",
-      "image": "https://globalnews.ca/wp-content/uploads/2026/10/874946b0721a0f95ad801115c25f98516b76d5fc26e60a136cb1d9a2851f4de3_ab5102.jpg?quality=65&strip=all&w=720&h=480&crop=1"
-    },
-    {
-      "title": "Major projects CEO faces B.C. First Nations’ frustrations over lack of consultations",
-      "summary": "First Nations in B.C. are calling on Ottawa to set national standards for Indigenous consultations on major projects, saying they were given limited time to review the proposal.",
-      "url": "https://globalnews.ca/news/12102948/major-projects-office-bc-first-nations-frustrations/",
-      "published": "2026-10-14T22:23:58+00:00",
-      "source": "Global BC",
-      "image": "https://globalnews.ca/wp-content/uploads/2026/10/3b722fe8aa760be57a1c5b7763a304a468af1d33bbe3c85740f0c7370a8e285c.jpg?quality=65&strip=all&w=720&h=480&crop=1"
+      "title": "Ukraine abandons truce and attacks Russian oil refinery as Zelenskyy says he feels betrayed by Trump",
+      "summary": "KYIV, Ukraine (AP) — Ukraine attacked a Russian oil refinery Thursday, abandoning a brief truce involving energy-related targets that it said Moscow did not heed, as Ukrainian President Volodymyr Zelenskyy said he felt betrayed by U.S.",
+      "url": "https://www.vancouverisawesome.com/world-news/ukraine-abandons-truce-and-attacks-russian-oil-refinery-as-zelenskyy-says-he-feels-betrayed-by-trump-12897399",
+      "published": "2026-10-15T17:46:49+00:00",
+      "source": "Vancouver Is Awesome",
+      "image": "https://www.vmcdn.ca/f/files/shared/feeds/cp/2026/10/e84c67ac636d258059e95c904e907cd432ff555ca713b115da9b40b1893127a8.jpg;w=960"
     }
   ],
   "hk": [
     {
-      "title": "中朝新鴨綠江大橋通車：北京、平壤與莫斯科的新格局",
-      "summary": "連接中國丹東與朝鮮新義州的新鴨綠江大橋建成12年後正式通車。大橋此前遭長期閒置，被觀察人士視為中朝關係起伏的一個象徵。",
-      "url": "https://www.bbc.com/zhongwen/articles/cqn065gxdk4lo/trad?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-15T11:39:24+00:00",
-      "source": "BBC 中文（繁體）",
-      "image": "https://ichef.bbci.co.uk/ace/ws/240/cpsprodpb/440e/live/a5961560-c888-11f1-bc2e-018d645d8d21.jpg"
-    },
-    {
-      "title": "美國中期選舉2026：贏會贏在哪裏，輸會輸在哪裏？",
-      "summary": "BBC深入分析將界定特朗普總統任期最後兩年的選舉前景，包括關鍵民調、選戰以及議題。",
-      "url": "https://www.bbc.com/zhongwen/articles/c6lyezge4xywo/trad?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-15T00:20:29+00:00",
-      "source": "BBC 中文（繁體）",
-      "image": "https://ichef.bbci.co.uk/ace/ws/240/cpsprodpb/f64c/live/4e58ab20-c552-11f1-bc2e-018d645d8d21.jpg"
-    },
-    {
-      "title": "Hong Kong Pride event axed due to ‘booking overlap,’ marking group’s 2nd consecutive venue cancellation",
-      "summary": "The group that once held Hong Kong&#8217;s annual Pride parades has said that a market event originally scheduled for November has been cancelled after its venue booking was axed due to an administrative error. In a Thursday statement on Instagram, the Hong Ko",
-      "url": "https://hongkongfp.com/2026/10/15/hong-kong-pride-event-axed-due-to-booking-overlap-marking-groups-2nd-consecutive-venue-cancellation/",
-      "published": "2026-10-15T10:03:32+00:00",
-      "source": "Hong Kong Free Press",
-      "image": "https://hongkongfp.com/wp-content/uploads/2026/10/Hong-Kong-Pride-event-cancelled-due-to-‘booking-overlap-marking-second-time-venue-pulls-booking-1024x576.jpg"
-    },
-    {
-      "title": "Lingnan University tightens English course requirements for undergrads",
-      "summary": "Hong Kong&#8217;s Lingnan University has updated its English language graduation requirements for undergraduates to ensure that all students complete and pass required university courses. Previously, students were able to rely on results from external tests. A",
-      "url": "https://hongkongfp.com/2026/10/15/lingnan-university-tightens-english-course-requirements-for-undergrads/",
-      "published": "2026-10-15T09:35:46+00:00",
-      "source": "Hong Kong Free Press",
-      "image": "https://hongkongfp.com/wp-content/uploads/2026/10/Lingnan-University-1024x576.jpg"
+      "title": "房委會高度關注兩屋邨更換升降機工程存在嚴重缺失",
+      "summary": "房委會表示，接獲機電署通知，指兩個「租者置其屋計劃」屋邨，沙田博康邨和觀塘翠屏北邨分別於2025年及2026年更換升降機時，施工存在嚴重缺失，房委會作為兩個租置屋邨內未出售單位的業主，對事件高度關注，正與機電署保持緊密聯繫，嚴肅跟進事件，追究臺日電梯（香港）有限公司責任。 房委會說，在租置屋邨當中，目前只有上述兩個屋邨由有關公司承辦更換升降機工程。至於另一個正籌備更換升降機的富亨邨，則尚未批出合約。房委會已建議富亨邨業主立案法團暫緩批出有關合約，並會就事件為業主立案法團提供一切支援，包括協助業主立案法團研究後續安排",
+      "url": "https://news.rthk.hk/rthk/ch/component/k2/1874115-20261016.htm",
+      "published": "2026-10-15T17:40:00+00:00",
+      "source": "RTHK 香港本地新聞",
+      "image": "https://newsstatic.rthk.hk/images/mfile_1874115_1_M_20261016014000.jpg"
     },
     {
       "title": "New four-lane bridge opens between China and North Korea after 12-year delay",
@@ -151,20 +63,20 @@
       "image": "https://hongkongfp.com/wp-content/uploads/2026/10/prcnprk-1024x576.jpg"
     },
     {
-      "title": "Dozens of Hong Kong Christian groups petition against tourism body’s ‘Halloween Month’ campaign",
-      "summary": "Dozens of Christian groups in Hong Kong have signed a petition against a “Halloween Month” campaign launched by the city’s tourism body on the grounds that celebrating the western ghost festival could harm the wellbeing of the next generation. The Christian gr",
-      "url": "https://hongkongfp.com/2026/10/15/dozens-of-hong-kong-christian-groups-petition-against-tourism-bodys-halloween-month-campaign/",
-      "published": "2026-10-15T04:36:49+00:00",
-      "source": "Hong Kong Free Press",
-      "image": "https://hongkongfp.com/wp-content/uploads/2026/10/RENAME-before-upload-28-1024x576.jpg"
+      "title": "陳茂波展開曼谷訪問行程　出席IMF與金管局合辦高級別圓桌會議",
+      "summary": "財政司司長陳茂波抵達泰國曼谷，展開訪問行程，以中國代表團成員身分出席國際貨幣基金組織（IMF）及世界銀行集團的年會及相關活動，期間出席了IMF與香港金管局合辦的高級別圓桌會議，探討中東及中亞地區經濟體如何更好受惠於香港投融資市場提供的龐大機遇。 陳茂波在主旨演講時表示，香港與中東和中亞地區的金融聯繫日益緊密，既有助投資者分散投資，也讓企業更好籌集發展資金和管理風險，隨著各地經濟持續發展和結構日趨多元，香港可從融通長期資本、拓寬貨幣選擇，以及管理和分擔風險三方面，支持各經濟體的增長。 陳茂波指出，香港首次公開招股集資",
+      "url": "https://news.rthk.hk/rthk/ch/component/k2/1874106-20261015.htm",
+      "published": "2026-10-15T14:12:39+00:00",
+      "source": "RTHK 大中華新聞",
+      "image": "https://newsstatic.rthk.hk/images/mfile_1874106_1_M_20261015221244.jpg"
     },
     {
-      "title": "Hong Kong bus operators seek fare hikes of up to 17.7% amid Middle East fuel pressure",
-      "summary": "Hong Kong&#8217;s four franchised bus operators have applied for fare hikes of up to 17.7 per cent as they face &#8220;significant financial pressure&#8221; from soaring fuel prices amid the ongoing war in the Middle East. The city’s four bus operators — Kowlo",
-      "url": "https://hongkongfp.com/2026/10/15/hong-kong-bus-operators-seek-fare-hikes-of-up-to-17-7-amid-middle-east-fuel-pressure/",
-      "published": "2026-10-15T04:03:06+00:00",
-      "source": "Hong Kong Free Press",
-      "image": "https://hongkongfp.com/wp-content/uploads/2026/10/Hong-Kong-bus-operators-seek-fare-hikes-up-to-17.7-per-cent-amid-Middle-East-war-1024x576.jpg"
+      "title": "美國中期選舉2026：贏會贏在哪裏，輸會輸在哪裏？",
+      "summary": "BBC深入分析將界定特朗普總統任期最後兩年的選舉前景，包括關鍵民調、選戰以及議題。",
+      "url": "https://www.bbc.com/zhongwen/articles/c6lyezge4xywo/trad?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-15T00:20:29+00:00",
+      "source": "BBC 中文（繁體）",
+      "image": "https://ichef.bbci.co.uk/ace/ws/240/cpsprodpb/f64c/live/4e58ab20-c552-11f1-bc2e-018d645d8d21.jpg"
     }
   ],
   "alerts": [
@@ -173,78 +85,97 @@
       "summary": "Deadline today: call 604-276-4100 by 3 p.m. to request a mail-ballot package. Online requests and Canada Post returns have ended. Election Day is Saturday, October 17; completed ballots must reach City Hall or a voting place by 8 p.m.",
       "url": "https://www.richmond.ca/city-hall/elections.htm",
       "source": "City of Richmond · official election information",
-      "severity": "priority"
+      "severity": "priority",
+      "image": "https://images.unsplash.com/photo-1540910419892-4a36d2c3266c?auto=format&fit=crop&w=900&q=80"
     },
     {
       "title": "Richmond weather: plan for the next three days",
       "summary": "Today: cloudy, high 18°C / low 7°C, precipitation chance up to 0% Friday: drizzle, high 21°C / low 10°C, precipitation chance up to 26% Saturday: heavy rain, high 15°C / low 8°C, precipitation chance up to 81% Check the official forecast before heading out with the kids.",
       "url": "https://weather.gc.ca/city/pages/bc-74_metric_e.html",
       "source": "Environment Canada forecast · Richmond",
-      "severity": "priority"
+      "severity": "priority",
+      "image": "https://images.unsplash.com/photo-1515694346937-94d85e41e6f0?auto=format&fit=crop&w=900&q=80"
     },
     {
       "title": "Canada Post: verify delivery before relying on mail",
       "summary": "Canada Post's current corporate news page does not confirm a new nationwide shutdown. Because labour and delivery conditions can change, check the latest official service notice before sending time-sensitive mail or relying on delivery dates.",
       "url": "https://www.canadapost-postescanada.ca/cpc/en/our-company/news-and-media/corporate-news/news-release-list.page",
       "source": "Canada Post · official updates",
-      "severity": "priority"
+      "severity": "priority",
+      "image": "https://images.unsplash.com/photo-1577705998148-6da4f3963bc8?auto=format&fit=crop&w=900&q=80"
     },
     {
       "title": "Downtown Vancouver: expect concert crowds near BC Place",
       "summary": "Bruno Mars has Vancouver shows on October 14, 16, 17, 20 and 21. TransLink advises passengers to allow extra travel time around Stadium–Chinatown Station and BC Place during concert periods.",
       "url": "https://www.translink.ca/news/2026/october/bruno%20mars%20takes%20the%20mic%20at%20stadium%20chinatown%20skytrain%20station",
       "source": "TransLink · October 14 service advisory",
-      "severity": "priority"
+      "severity": "priority",
+      "image": "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=900&q=80"
     }
   ],
   "events": [
     {
-      "title": "Family Storytime",
+      "title": "Pumpkin Patch at Richmond Country Farms",
+      "start_date": "2026-10-15",
+      "end_date": "2026-10-31",
+      "date": "Oct 15",
+      "date_label": "OCT 15 · THU",
+      "venue": "12900 Steveston Highway, Richmond",
+      "time": "Weekdays 9 am–4 pm · Weekends 10 am–4:30 pm",
+      "summary": "Tractor-wagon ride, pumpkin picking, corn maze, farm animals and seasonal decorations. Open daily through October 31; last entry is 4 pm weekdays and 4:30 pm weekends.",
+      "ages": "All ages · family outing",
+      "price": "$15 + tax weekdays · $20 + tax weekends; ages 2 and under free",
+      "url": "https://richmondcountryfarms.com/pages/hours-location",
+      "source": "Richmond Country Farms · official hours",
+      "image": "https://images.unsplash.com/photo-1509622905150-fa66d390c9e1?auto=format&fit=crop&w=900&q=80"
+    },
+    {
+      "title": "Kidde Canada & Richmond Fire-Rescue",
+      "start_date": "2026-10-17",
+      "end_date": "2026-10-17",
+      "date": "Oct 17",
+      "date_label": "OCT 17 · SAT",
+      "venue": "Home Depot Richmond",
+      "time": "10 am–2 pm",
+      "summary": "Meet Richmond Fire-Rescue's team and learn about home fire safety at this public community event.",
+      "ages": "Family-friendly",
+      "price": "Free · drop-in",
+      "url": "https://firerescue.richmond.ca/event-calendar/list/?posts_per_page=108",
+      "source": "Richmond Fire-Rescue · official event calendar",
+      "image": "https://images.unsplash.com/photo-1599708153386-62bf8f035c90?auto=format&fit=crop&w=900&q=80"
+    },
+    {
+      "title": "Family Storytime (Cambie Library)",
+      "start_date": "2026-10-17",
+      "end_date": "2026-10-17",
+      "date": "Oct 17",
+      "date_label": "OCT 17 · SAT",
+      "venue": "Richmond Public Library · Cambie Branch",
+      "time": "10:30–11 am",
+      "summary": "Songs, stories, rhymes and more. Drop-in; a parent or caregiver must attend.",
+      "ages": "Preschool · family",
+      "price": "Free · drop-in",
+      "url": "https://yourlibrary.bibliocommons.com/v2/events?series=6a99bdea4cb69d003e258991",
+      "source": "Richmond Public Library · official event listing",
+      "image": "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&w=900&q=80"
+    },
+    {
+      "title": "DUPLO Free Play (Brighouse Library)",
       "start_date": "2026-10-17",
       "end_date": "2026-10-17",
       "date": "Oct 17",
       "date_label": "OCT 17 · SAT",
       "venue": "Richmond Public Library · Brighouse Branch",
-      "time": "10:30–11:00 am",
-      "summary": "Songs, stories, rhymes and activities. Drop-in; caregiver stays with child.",
-      "ages": "Ages 3–5",
-      "price": "Free · Drop-in",
-      "url": "https://yourlibrary.bibliocommons.com/v2/events?types=5ade5d8c3f3e9525004dca8e",
-      "source": "Richmond Public Library",
-      "image": "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&w=900&q=80"
+      "time": "11–11:30 am",
+      "summary": "Drop-in building play with DUPLO bricks. No registration needed; caregiver stays with child.",
+      "ages": "Ages 2–5",
+      "price": "Free · drop-in",
+      "url": "https://yourlibrary.bibliocommons.com/v2/events?audiences=5ab2cc261cc59e4b41421b0d",
+      "source": "Richmond Public Library · official event listing",
+      "image": "https://images.unsplash.com/photo-1587654780291-39c9404d746b?auto=format&fit=crop&w=900&q=80"
     },
     {
-      "title": "Family Storytime",
-      "start_date": "2026-10-18",
-      "end_date": "2026-10-18",
-      "date": "Oct 18",
-      "date_label": "OCT 18 · SUN",
-      "venue": "Richmond Public Library · Ironwood Branch",
-      "time": "10:30–11:00 am",
-      "summary": "Songs, stories, rhymes and activities for young children. Caregiver must attend.",
-      "ages": "Family · preschool",
-      "price": "Free · Drop-in",
-      "url": "https://yourlibrary.bibliocommons.com/v2/events?types=5ade5d8c3f3e9525004dca8e",
-      "source": "Richmond Public Library",
-      "image": "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=900&q=80"
-    },
-    {
-      "title": "Family Storytime",
-      "start_date": "2026-10-18",
-      "end_date": "2026-10-18",
-      "date": "Oct 18",
-      "date_label": "OCT 18 · SUN",
-      "venue": "Richmond Public Library · Main Library",
-      "time": "3:30–4:00 pm",
-      "summary": "Interactive family storytime with songs, rhymes, books and activities.",
-      "ages": "Infants–5 years with adult",
-      "price": "Free · check listing",
-      "url": "https://rvalibrary.libcal.com/calendar/main",
-      "source": "Richmond Public Library · LibCal",
-      "image": "https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=900&q=80"
-    },
-    {
-      "title": "Together Time",
+      "title": "Together Time (Ages 3–5)",
       "start_date": "2026-10-19",
       "end_date": "2026-10-19",
       "date": "Oct 19",
@@ -252,26 +183,11 @@
       "venue": "General Currie Elementary · Currie Early Learning Centre",
       "time": "9:30–11:30 am",
       "summary": "Play, painting, crafts, science, yoga and circle time with Early Childhood Educators. First come, first served; capacity limited.",
-      "ages": "Ages 3–5 · 1 adult per child",
+      "ages": "Ages 3–5 · adult participation required",
       "price": "Free",
       "url": "https://www.richmondkids.ca/en/families/calendar/together-time-ages-3-5-8?occurrenceID=623465",
       "source": "Richmond Child Care Resource & Referral",
       "image": "https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?auto=format&fit=crop&w=900&q=80"
-    },
-    {
-      "title": "Preschool Storytime",
-      "start_date": "2026-10-22",
-      "end_date": "2026-10-22",
-      "date": "Oct 22",
-      "date_label": "OCT 22 · THU",
-      "venue": "Richmond Public Library · Main Library",
-      "time": "10:30–11:15 am",
-      "summary": "Interactive storytime with books, songs, rhymes and activities.",
-      "ages": "Ages 3–5 with adult",
-      "price": "Free · check listing",
-      "url": "https://rvalibrary.libcal.com/event/16756793",
-      "source": "Richmond Public Library · LibCal",
-      "image": "https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=900&q=80"
     }
   ]
 }
