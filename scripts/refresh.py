@@ -22,7 +22,7 @@ FEEDS = {
   ("RTHK 香港本地新聞","https://rthk.hk/rthk/news/rss/c_expressnews_clocal.xml"),
   ("RTHK 大中華新聞","https://rthk.hk/rthk/news/rss/c_expressnews_greaterchina.xml"),
   ("BBC 中文（繁體）","https://feeds.bbci.co.uk/zhongwen/trad/rss.xml"),
-  ("Hong Kong Free Press","https://hongkongfp.com/feed/")
+  ("RTHK 財經新聞","https://rthk.hk/rthk/news/rss/c_expressnews_finance.xml")
  ]
 }
 def get(url):
@@ -152,9 +152,9 @@ def importance(item, section):
   if any(term in title for term in terms): score += {"critical":5,"politics":3,"economy":3,"technology":2}[group]
  if section=="local" and any(t in title for t in ["richmond","vancouver","translink","british columbia","b.c.","bc ","school","wildfire","flood","election","canada post","housing","health","cyberattack"]): score+=4
  if section=="hk":
-  if item.get("source","").startswith("RTHK 香港本地新聞"): score+=4
-  if any(t in title for t in ["香港","港府","港股","李家超","立法會","恒指","房屋","巴士","學校","警方","本港","大埔","北都","港人"]): score+=5
-  if any(t in title for t in ["美國中期選舉","烏克蘭","特朗普","美國總統"]): score-=2
+  if item.get("source","").startswith("RTHK"): score+=4
+  if any(t in title for t in ["香港","港府","港股","李家超","立法會","恒指","房屋","巴士","學校","警方","本港","大埔","北都","港人","房委會","港鐵","運輸署","醫管局","財政司","行政長官","政府","樓市","樓價","公屋","私樓","按揭","利率","通脹","失業","旅客","旅遊","國安","法院","高等法院","廉署","天氣","暴雨","交通意外","火警","騙案","詐騙","拘捕","加價","減價","最低工資","強積金","輸入外勞"]): score+=6
+  if any(t in title for t in ["美國中期選舉","烏克蘭","特朗普","美國總統","中國外交部"]): score-=3
  if section=="world" and any(t in title for t in ["ukraine","iran","russia","israel","gaza","china","north korea","trump","global","united nations"]): score+=2
  if item.get("source","").startswith("Reuters"): score+=2
  if item.get("source","").startswith("AP"): score+=2
@@ -180,7 +180,20 @@ def topic_key(item, section):
   local_terms=["香港","港府","港股","李家超","立法會","恒指","房屋","巴士","學校","警方","本港","大埔","北都","港人","港鐵","房委會","港元","旅客","香港人","hong kong","hongkong"]
   if not any(t in title_only for t in local_terms): return "not-hong-kong"
  return ""
+# Hong Kong section is strictly Traditional Chinese and Hong Kong-focused.
+def has_chinese(text):
+ return bool(re.search(r"[\\u4e00-\\u9fff]", text or ""))
+
 for section in ("world","local","hk"):
+ if section=="hk":
+  data[section]=[
+   item for item in data[section]
+   if has_chinese(item.get("title",""))
+   and topic_key(item,section) != "not-hong-kong"
+  ]
+  for item in data[section]:
+   if not has_chinese(item.get("summary","")):
+    item["summary"]="詳情請查看原文報道。"
  data[section].sort(key=lambda item: importance(item,section),reverse=True)
  selected=[]; topics=set()
  for item in data[section]:
