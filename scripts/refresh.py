@@ -184,24 +184,75 @@ data["alerts"] = weather_items + [
  {"title":"Richmond municipal alerts","summary":"Check the City of Richmond's official alert information for local notices and instructions.","url":"https://www.richmond.ca/services/public-safety/emergency-preparedness/notify-me.htm","source":"City of Richmond · official alert information"},
  {"title":"Provincial emergency alerts","summary":"Check EmergencyInfoBC for current provincial warnings. This app does not replace Alert Ready or municipal notifications.","url":"https://www.emergencyinfobc.gov.bc.ca/","source":"EmergencyInfoBC"}
 ]
-# Practical daily priorities: distinguish the end of a nationwide shutdown from
-# ongoing rotating action, and surface time-sensitive local election logistics.
-priority_items = [
- {"title":"Canada Post: national shutdown ended, rotating strikes may still disrupt service",
-  "summary":"Canada Post said employees would return on October 11 as CUPW moved from a nationwide strike to rotating strikes. Do not treat this as confirmation that all strike action is cancelled; check the latest service and labour updates before relying on delivery.",
-  "url":"https://www.canadapost-postescanada.ca/cpc/en/our-company/news-and-media/corporate-news/news-release-list.page",
-  "source":"Canada Post · official labour updates","severity":"priority"}
-]
+# Curated daily priorities: actionable context, not a generic list of RSS alerts.
+# Keep each item concise, time-sensitive, and linked to an authoritative source.
 today_local=datetime.now().astimezone().date()
+priority_items=[]
+
+# Election deadline and voting logistics.
 election_day=datetime(2026,10,17).date()
 if today_local <= election_day:
+ election_summary=("Election Day is Saturday, October 17, from 8 a.m. to 8 p.m. "
+  "Phone requests for mail-ballot packages close October 15 at 3 p.m. at 604-276-4100. "
+  "Online requests and Canada Post returns have ended; completed ballots must be delivered to City Hall or a voting place by 8 p.m. on October 17.")
+ if today_local == datetime(2026,10,15).date():
+  election_summary=("Deadline today: call 604-276-4100 by 3 p.m. to request a mail-ballot package. "
+   "Online requests and Canada Post returns have ended. Election Day is Saturday, October 17; completed ballots must reach City Hall or a voting place by 8 p.m.")
  priority_items.append({
-  "title":"Richmond election: vote Saturday, October 17",
-  "summary":"Richmond's municipal and school election is this Saturday. The City says mail-ballot requests by phone close October 15 at 3:00 p.m.; ballots can no longer be returned by Canada Post and must reach the Chief Election Officer by 8:00 p.m. on October 17. Check your voting location and official instructions.",
-  "url":"https://richmond.ca/city-hall/elections.htm",
+  "title":"Richmond election: mail-ballot phone deadline " + ("today" if today_local == datetime(2026,10,15).date() else "passed; vote October 17"),
+  "summary":election_summary,
+  "url":"https://www.richmond.ca/city-hall/elections.htm",
   "source":"City of Richmond · official election information","severity":"priority"
  })
-data["alerts"] = (priority_items + data["alerts"])[:4]
+
+# A current, location-specific forecast helps with practical plans.
+try:
+ forecast_url=("https://api.open-meteo.com/v1/forecast?latitude=49.154&longitude=-123.158"
+  "&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max"
+  "&timezone=America%2FVancouver&forecast_days=3")
+ forecast=json.loads(get(forecast_url).decode("utf-8"))
+ daily=forecast.get("daily",{})
+ codes=daily.get("weather_code",[])
+ highs=daily.get("temperature_2m_max",[])
+ lows=daily.get("temperature_2m_min",[])
+ rain=daily.get("precipitation_probability_max",[])
+ labels={0:"clear",1:"mostly clear",2:"partly cloudy",3:"cloudy",45:"fog",48:"fog",51:"drizzle",53:"drizzle",55:"drizzle",61:"rain",63:"rain",65:"heavy rain",71:"snow",73:"snow",75:"heavy snow",80:"showers",81:"showers",82:"heavy showers",95:"thunderstorms"}
+ forecast_lines=[]
+ for i in range(min(3,len(codes),len(highs),len(lows))):
+  day=datetime.fromisoformat(daily["time"][i]).date()
+  day_name="Today" if day==today_local else day.strftime("%A")
+  phrase=labels.get(codes[i],"changeable conditions")
+  rain_text=(f", precipitation chance up to {rain[i]}%" if i<len(rain) and rain[i] is not None else "")
+  forecast_lines.append(f"{day_name}: {phrase}, high {round(highs[i])}°C / low {round(lows[i])}°C{rain_text}")
+ if forecast_lines:
+  priority_items.append({
+   "title":"Richmond weather: plan for the next three days",
+   "summary":" ".join(forecast_lines)+ " Check the official forecast before heading out with the kids.",
+   "url":"https://weather.gc.ca/city/pages/bc-74_metric_e.html",
+   "source":"Environment Canada forecast · Richmond","severity":"priority"
+  })
+except Exception as e:
+ print("Forecast summary unavailable:",str(e))
+
+# Canada Post: avoid claiming an active strike without a current official notice.
+priority_items.append({
+ "title":"Canada Post: verify delivery before relying on mail",
+ "summary":"Canada Post's current corporate news page does not confirm a new nationwide shutdown. Because labour and delivery conditions can change, check the latest official service notice before sending time-sensitive mail or relying on delivery dates.",
+ "url":"https://www.canadapost-postescanada.ca/cpc/en/our-company/news-and-media/corporate-news/news-release-list.page",
+ "source":"Canada Post · official updates","severity":"priority"
+})
+
+# Useful local travel heads-up for major downtown events.
+if today_local <= datetime(2026,10,21).date() and today_local >= datetime(2026,10,14).date():
+ priority_items.append({
+  "title":"Downtown Vancouver: expect concert crowds near BC Place",
+  "summary":"Bruno Mars has Vancouver shows on October 14, 16, 17, 20 and 21. TransLink advises passengers to allow extra travel time around Stadium–Chinatown Station and BC Place during concert periods.",
+  "url":"https://www.translink.ca/news/2026/october/bruno%20mars%20takes%20the%20mic%20at%20stadium%20chinatown%20skytrain%20station",
+  "source":"TransLink · October 14 service advisory","severity":"priority"
+ })
+
+# Fill remaining slots with real official alert sources, never more than four items.
+data["alerts"] = (priority_items + data.get("alerts", []))[:4]
 data["status"] = alert_status
 with open("data.json","w",encoding="utf-8") as f: json.dump(data,f,ensure_ascii=False,indent=2)
 print("Wrote data.json", {k:len(v) for k,v in data.items() if isinstance(v,list)})
