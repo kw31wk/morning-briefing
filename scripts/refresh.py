@@ -177,7 +177,10 @@ def topic_key(item, section):
   local_terms=["richmond","vancouver","burnaby","surrey","british columbia","b.c.","translink","canada line","steveston","metro vancouver","bc ndp","canada post","city council","school district","mayoral","housing","aquatic centre","highway","construction","ferry","skytrain"]
   if not any(t in title_only for t in local_terms): return "not-local"
  if section=="hk":
-  local_terms=["香港","港府","港股","李家超","立法會","恒指","房屋","巴士","學校","警方","本港","大埔","北都","港人","港鐵","房委會","港元","旅客","香港人","hong kong","hongkong"]
+  # RTHK local and finance feeds are already scoped to Hong Kong; do not
+  # discard their relevant headlines merely because they omit "香港".
+  if item.get("source","").startswith(("RTHK 香港本地新聞","RTHK 財經新聞")): return ""
+  local_terms=["香港","港府","港股","李家超","立法會","恒指","房屋","巴士","學校","警方","本港","大埔","北都","港人","港鐵","房委會","港元","旅客","香港人","hong kong","hongkong","金融管理局","金管局","銀行","股市","財經","經濟","樓市","樓價","公屋","交通","政府","市民","天文台","醫院","醫療","教育","商業","零售","消費","旅遊","法庭","法院","警方","罪案","意外","天氣","最低工資","加息","減息","恒生","滙豐","中銀香港","渣打"]
   if not any(t in title_only for t in local_terms): return "not-hong-kong"
  return ""
 # Hong Kong section is strictly Traditional Chinese and Hong Kong-focused.
