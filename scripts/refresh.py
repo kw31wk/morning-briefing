@@ -4,7 +4,7 @@ from email.utils import parsedate_to_datetime
 
 FEEDS = {
  "world": [
-  ("Reuters World","https://feeds.reuters.com/Reuters/worldNews"),
+  ("Al Jazeera","https://www.aljazeera.com/xml/rss/all.xml"),
   ("CBC World","https://www.cbc.ca/webfeed/rss/rss-world"),
   ("BBC World","https://feeds.bbci.co.uk/news/world/rss.xml")
  ],
@@ -14,7 +14,7 @@ FEEDS = {
   ("Global BC","https://globalnews.ca/bc/feed/")
  ],
  "hk": [
-  ("RTHK English","https://rthk.hk/rthk/news/rss/e_expressnews.xml"),
+  ("BBC 中文（繁體）","https://feeds.bbci.co.uk/zhongwen/trad/rss.xml"),
   ("Hong Kong Free Press","https://hongkongfp.com/feed/")
  ]
 }
