@@ -44,11 +44,17 @@ def parse(feedname,url,limit=6):
    desc=val("description","summary","{http://www.w3.org/2005/Atom}summary")
    desc=re.sub("<[^>]+>"," ",desc)
    desc=re.sub(r"\s+"," ",desc).strip()
+   image_url=""
+   for tag in ["enclosure","{http://search.yahoo.com/mrss/}content","{http://search.yahoo.com/mrss/}thumbnail"]:
+    el=it.find(tag)
+    if el is not None:
+     candidate=el.attrib.get("url") or el.attrib.get("href") or ""
+     if candidate.startswith("https://"): image_url=candidate; break
    pub=val("pubDate","published","updated","{http://www.w3.org/2005/Atom}published")
    try: published=parsedate_to_datetime(pub).astimezone(timezone.utc).isoformat() if pub else datetime.now(timezone.utc).isoformat()
    except: published=datetime.now(timezone.utc).isoformat()
    if title and link.startswith("http"):
-    out.append({"title":title,"summary":desc[:260],"url":link,"published":published,"source":feedname})
+    out.append({"title":title,"summary":desc[:260],"url":link,"published":published,"source":feedname,"image":image_url})
    if len(out)>=limit: break
  except Exception as e:
   print("Feed unavailable:",feedname,url,str(e))
@@ -85,25 +91,18 @@ def scrape_events():
   text=" ".join(p.parts)
   # Calendar page is a rolling 30-day list. Use the page itself as source; don't fabricate missing dates.
   patterns=[
-   ("Halloween Hoot","24 Oct 2026 through 01 Nov 2026","Richmond Nature Park","10:00am–4:00pm","Family-friendly Halloween trail; all ages. Check the official listing before visiting."),
-   ("Halloween Hangout","Sat, Oct 17","Hamilton Community Centre","1:00–3:00pm","Free Halloween games, crafts and a themed show; up to age 12. Adult participation and registration required."),
-   ("Halloween Spooky Science","Sat, Oct 17","Cambie Community Centre","10:00–11:30am","Halloween-themed science for ages 6–12; $14.05. Check availability."),
-   ("Trick or Treat at City Centre","Sat, Oct 31","City Centre Community Centre","1:00–4:00pm","Free indoor Halloween village and craft for ages 3–8.")
+   ("Halloween Hoot","2026-10-24","2026-11-01","Richmond Nature Park","10:00am–4:00pm","Family-friendly Halloween trail; all ages. Check the official listing before visiting."),
+   ("Halloween Hangout","2026-10-17","2026-10-17","Hamilton Community Centre","1:00–3:00pm","Free Halloween games, crafts and a themed show; up to age 12. Adult participation and registration required."),
+   ("Halloween Spooky Science","2026-10-17","2026-10-17","Cambie Community Centre","10:00–11:30am","Halloween-themed science for ages 6–12; $14.05. Check availability."),
+   ("Trick or Treat at City Centre","2026-10-31","2026-10-31","City Centre Community Centre","1:00–4:00pm","Free indoor Halloween village and craft for ages 3–8.")
   ]
+  today=datetime.now(timezone.utc).date()
   events=[]
-  for title,date,venue,time,summary in patterns:
-   if title.lower() in text.lower():
-    # Link to the official calendar page, which is the verifiable source for the event listing.
-    events.append({"title":title,"date":date,"venue":venue,"time":time,"summary":summary,"url":url,"source":"City of Richmond official calendar"})
-  # Add verified library preschool events from the official public library calendar page.
-  liburl="https://rvalibrary.libcal.com/calendar/main"
-  libraw=get(liburl).decode("utf-8","ignore")
-  lib=TextPage(); lib.feed(libraw); lt=" ".join(lib.parts)
-  if "Preschool Storytime" in lt and "October 15, 2026" in lt:
-   events.append({"title":"Preschool Storytime","date":"Thu, Oct 15","venue":"Richmond Public Library – Main Library","time":"10:30–11:15am","summary":"Stories, songs and rhymes for ages 3–5 with an adult. Check the library calendar for availability and details.","url":liburl,"source":"Richmond Public Library"})
-  if "Preschool Storytime" in lt and "October 22, 2026" in lt:
-   events.append({"title":"Preschool Storytime","date":"Thu, Oct 22","venue":"Richmond Public Library – Main Library","time":"10:30–11:15am","summary":"Stories, songs and rhymes for ages 3–5 with an adult. Check the library calendar for availability and details.","url":liburl,"source":"Richmond Public Library"})
-  return events
+  for title,start_date,end_date,venue,time,summary in patterns:
+   if title.lower() in text.lower() and datetime.fromisoformat(end_date).date() >= today:
+    events.append({"title":title,"date":start_date if start_date==end_date else start_date+" to "+end_date,"start_date":start_date,"end_date":end_date,"venue":venue,"time":time,"summary":summary,"url":url,"source":"City of Richmond official calendar"})
+  # Library listings are linked in the app; only add entries when dates can be parsed reliably.
+  # Do not add library events without a reliably parsed future date.\n  return events
  except Exception as e:
   print("Event calendar unavailable:",str(e)); return []
 data["events"]=scrape_events()
