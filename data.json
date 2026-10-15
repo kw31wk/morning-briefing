@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-15T18:12:01.240948+00:00",
+  "updated": "2026-10-15T18:13:00.662650+00:00",
   "status": "Environment Canada warning feed checked; municipal emergency notices are linked separately.",
   "world": [
     {
@@ -11,20 +11,28 @@
       "image": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/9b54/live/4c6fe8b0-c899-11f1-a64c-550be9e3c66b.jpg"
     },
     {
-      "title": "Ukraine resumes attacks on Russian refineries, as Zelenskyy expresses frustration with U.S.",
-      "summary": "Ukraine has resumed ‌its attacks on Russian refineries with a strike at an installation in the Ryazan region, the regional governor said Thursday, after Ukrainian President Volodymyr Zelenskyy voiced his anger at a \"dangerous\" withdrawal of U.S. intelligence.",
-      "url": "https://www.cbc.ca/news/world/russia-ukraine-war-day-1695-9.7381475?cmp=rss",
-      "published": "2026-10-15T11:11:36+00:00",
-      "source": "CBC World",
-      "image": "https://i.cbc.ca/ais/c1bb350c-521a-44fa-88c0-1279a133d484,1792060398825/full/max/0/default.jpg?im=Crop%2Crect%3D%280%2C0%2C4674%2C2629%29%3B"
-    },
-    {
       "title": "Houthis target Yemen’s presidential palace in Aden with missiles",
       "summary": "Saudi-led coalition accuses Houthis of obtaining missile parts from regional states.",
       "url": "https://www.aljazeera.com/news/2026/10/15/houthis-target-yemens-presidential-palace-in-aden-with-missiles?traffic_source=rss",
       "published": "2026-10-15T16:50:42+00:00",
       "source": "Al Jazeera",
       "image": ""
+    },
+    {
+      "title": "Obama says drift towards extremism 'not inevitable'",
+      "summary": "More than 12,000 people filled a major venue in the city to hear the former US president's take on the challenges the world is facing. .",
+      "url": "https://www.bbc.co.uk/news/articles/crwyd7vq3xw1o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-15T10:51:53+00:00",
+      "source": "BBC World",
+      "image": "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/baf4/live/d48f4dd0-c87b-11f1-bf46-d13a9e06695d.jpg"
+    },
+    {
+      "title": "How high inflation is hurting Trump's Republicans in U.S. midterm campaign",
+      "summary": "For nearly a year, U.S. President Donald Trump has been trying to persuade voters not to get riled up over rising prices, but polls suggest voters aren't buying his sales pitch, with respondents giving him low marks on the cost of living and disapproving of ho",
+      "url": "https://www.cbc.ca/news/world/trump-midterms-inflation-cost-of-living-gas-prices-9.7380647?cmp=rss",
+      "published": "2026-10-15T08:00:00+00:00",
+      "source": "CBC World",
+      "image": "https://i.cbc.ca/ais/98cec85d-bafd-42d5-917c-2766675724f6,1792024020375/full/max/0/default.jpg?im=Crop%2Crect%3D%280%2C106%2C4032%2C2268%29%3B"
     }
   ],
   "local": [
@@ -37,12 +45,28 @@
       "image": "https://globalnews.ca/wp-content/uploads/2026/10/fdbfb34c33ba427467415e049ec748cb652f0efed35dc1a667e1fdd92551a40d.jpg?quality=65&strip=all&w=720&h=480&crop=1"
     },
     {
-      "title": "Ukraine abandons truce and attacks Russian oil refinery as Zelenskyy says he feels betrayed by Trump",
-      "summary": "KYIV, Ukraine (AP) — Ukraine attacked a Russian oil refinery Thursday, abandoning a brief truce involving energy-related targets that it said Moscow did not heed, as Ukrainian President Volodymyr Zelenskyy said he felt betrayed by U.S.",
-      "url": "https://www.vancouverisawesome.com/world-news/ukraine-abandons-truce-and-attacks-russian-oil-refinery-as-zelenskyy-says-he-feels-betrayed-by-trump-12897399",
-      "published": "2026-10-15T17:46:49+00:00",
-      "source": "Vancouver Is Awesome",
-      "image": "https://www.vmcdn.ca/f/files/shared/feeds/cp/2026/10/e84c67ac636d258059e95c904e907cd432ff555ca713b115da9b40b1893127a8.jpg;w=960"
+      "title": "Fry and Sim face off in Vancouver, but other mayoral candidates reject spoiler label",
+      "summary": "Interest in the Vancouver race appears high. The City of Vancouver says more than 103,000 people have voted in advance, up 60 per cent from roughly 65,000 voters in 2022.",
+      "url": "https://globalnews.ca/news/12103468/vancouver-mayoral-debate/",
+      "published": "2026-10-15T12:43:32+00:00",
+      "source": "Global BC",
+      "image": "https://globalnews.ca/wp-content/uploads/2026/10/5f825bd525b1c8745d25da7808e5725574ddb71efe2fc10ddf719fbcec65869c.jpg?quality=65&strip=all&w=720&h=480&crop=1"
+    },
+    {
+      "title": "BC NDP election costings would see deficit fall to $12B in two years",
+      "summary": "The costings released hours ahead of the campaign's only leaders' debate show a deficit of about $12 billion by 2028/29, down from a forecast of $14 billion this fiscal year.",
+      "url": "https://globalnews.ca/news/12103092/bc-ndp-election-costings-deficit-fall-two-years/",
+      "published": "2026-10-15T00:36:38+00:00",
+      "source": "Global BC",
+      "image": "https://globalnews.ca/wp-content/uploads/2026/10/874946b0721a0f95ad801115c25f98516b76d5fc26e60a136cb1d9a2851f4de3_ab5102.jpg?quality=65&strip=all&w=720&h=480&crop=1"
+    },
+    {
+      "title": "Vancouver Aquatic Centre 25-metre rebuild a First Nation’s land claim issue: Park Board chair",
+      "summary": "The Park Board has previously stated that in order to rebuild a 50 metre pool, the facility’s footprint would need to be expanded to meet modern safety and competition rules.",
+      "url": "https://globalnews.ca/news/12103103/vancouver-aquatic-centre-rebuild-first-nations-land-claim-issue/",
+      "published": "2026-10-15T00:46:11+00:00",
+      "source": "Global BC",
+      "image": "https://globalnews.ca/wp-content/uploads/2025/08/8a864b73e58973e70500b28b69145cf2d5ce46f5918a5732d679e1274a00423f.jpg?quality=65&strip=all&w=720&h=480&crop=1"
     }
   ],
   "hk": [
@@ -55,28 +79,28 @@
       "image": "https://newsstatic.rthk.hk/images/mfile_1874115_1_M_20261016014000.jpg"
     },
     {
-      "title": "New four-lane bridge opens between China and North Korea after 12-year delay",
-      "summary": "North Korean trucks festooned with flags and flowers trundled towards China on Thursday as a new bridge between the countries opened, allowing the isolated nation to ramp up trade with its huge neighbour. Nuclear-armed North Korea is largely cut off from the w",
-      "url": "https://hongkongfp.com/2026/10/15/new-four-lane-bridge-opens-between-china-and-north-korea-after-12-year-delay/",
-      "published": "2026-10-15T07:40:27+00:00",
+      "title": "觀塘繞道有私家車與巴士相撞　3人輕傷",
+      "summary": "觀塘繞道晚上近10時發生交通意外，有私家車往油塘方向行駛期間與一輛巴士相撞，私家車司機一度被困，意外中3人受輕傷，包括巴士上的一名70多歲女乘客。 運輸署表示，因交通意外，觀塘繞道往油塘方向近香港郵政大樓一度全線封閉，而往大老山隧道方向，近香港郵政大樓的部份行車線仍然封閉，駕駛人士只可使用餘下行車線，現時交通繁忙。 編輯：陳樂謙",
+      "url": "https://news.rthk.hk/rthk/ch/component/k2/1874110-20261015.htm",
+      "published": "2026-10-15T15:15:11+00:00",
+      "source": "RTHK 香港本地新聞",
+      "image": "https://newsstatic.rthk.hk/images/mfile_1874110_1_M_20261015231511.jpg"
+    },
+    {
+      "title": "警方打擊高利貸放債集團　拘捕22人",
+      "summary": "警方打擊高利貸放債集團，拘捕16男6女，他們介乎27至71歲，分別涉嫌「以過高利率放債」、「刑事毁壞」、「刑事恐嚇」以及「洗黑錢」等。警方相信已成功瓦解一個高利貸集團，又說集團操控的財務公司，貸款實際年利率高達逾300%，遠高於法定最高年利率48%水平。 探員周一搜查油麻地兩間由該集團操控、持放債人牌照的財務公司。警方調查顯示，相關財務公司名下銀行戶口在過往一年有超過9000萬元的交易記錄。該集團會透過網上宣傳或推銷電話接觸市民，以快速批核貸款、免信貸報告審查及手續簡單作招徠。但借貸人在借貸過程中，犯罪集團會以不同",
+      "url": "https://news.rthk.hk/rthk/ch/component/k2/1874104-20261015.htm",
+      "published": "2026-10-15T13:41:08+00:00",
+      "source": "RTHK 香港本地新聞",
+      "image": ""
+    },
+    {
+      "title": "Hong Kong bus operators seek fare hikes of up to 17.7% amid Middle East fuel pressure",
+      "summary": "Hong Kong&#8217;s four franchised bus operators have applied for fare hikes of up to 17.7 per cent as they face &#8220;significant financial pressure&#8221; from soaring fuel prices amid the ongoing war in the Middle East. The city’s four bus operators — Kowlo",
+      "url": "https://hongkongfp.com/2026/10/15/hong-kong-bus-operators-seek-fare-hikes-of-up-to-17-7-amid-middle-east-fuel-pressure/",
+      "published": "2026-10-15T04:03:06+00:00",
       "source": "Hong Kong Free Press",
-      "image": "https://hongkongfp.com/wp-content/uploads/2026/10/prcnprk-1024x576.jpg"
-    },
-    {
-      "title": "陳茂波展開曼谷訪問行程　出席IMF與金管局合辦高級別圓桌會議",
-      "summary": "財政司司長陳茂波抵達泰國曼谷，展開訪問行程，以中國代表團成員身分出席國際貨幣基金組織（IMF）及世界銀行集團的年會及相關活動，期間出席了IMF與香港金管局合辦的高級別圓桌會議，探討中東及中亞地區經濟體如何更好受惠於香港投融資市場提供的龐大機遇。 陳茂波在主旨演講時表示，香港與中東和中亞地區的金融聯繫日益緊密，既有助投資者分散投資，也讓企業更好籌集發展資金和管理風險，隨著各地經濟持續發展和結構日趨多元，香港可從融通長期資本、拓寬貨幣選擇，以及管理和分擔風險三方面，支持各經濟體的增長。 陳茂波指出，香港首次公開招股集資",
-      "url": "https://news.rthk.hk/rthk/ch/component/k2/1874106-20261015.htm",
-      "published": "2026-10-15T14:12:39+00:00",
-      "source": "RTHK 大中華新聞",
-      "image": "https://newsstatic.rthk.hk/images/mfile_1874106_1_M_20261015221244.jpg"
-    },
-    {
-      "title": "美國中期選舉2026：贏會贏在哪裏，輸會輸在哪裏？",
-      "summary": "BBC深入分析將界定特朗普總統任期最後兩年的選舉前景，包括關鍵民調、選戰以及議題。",
-      "url": "https://www.bbc.com/zhongwen/articles/c6lyezge4xywo/trad?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-15T00:20:29+00:00",
-      "source": "BBC 中文（繁體）",
-      "image": "https://ichef.bbci.co.uk/ace/ws/240/cpsprodpb/f64c/live/4e58ab20-c552-11f1-bc2e-018d645d8d21.jpg"
+      "image": "https://hongkongfp.com/wp-content/uploads/2026/10/Hong-Kong-bus-operators-seek-fare-hikes-up-to-17.7-per-cent-amid-Middle-East-war-1024x576.jpg"
     }
   ],
   "alerts": [
@@ -90,7 +114,7 @@
     },
     {
       "title": "Richmond weather: plan for the next three days",
-      "summary": "Today: cloudy, high 18°C / low 7°C, precipitation chance up to 0% Friday: drizzle, high 21°C / low 10°C, precipitation chance up to 26% Saturday: heavy rain, high 15°C / low 8°C, precipitation chance up to 81% Check the official forecast before heading out with the kids.",
+      "summary": "Today: cloudy, high 18°C / low 7°C, precipitation chance up to 0% Friday: drizzle, high 21°C / low 10°C, precipitation chance up to 25% Saturday: heavy rain, high 15°C / low 8°C, precipitation chance up to 81% Check the official forecast before heading out with the kids.",
       "url": "https://weather.gc.ca/city/pages/bc-74_metric_e.html",
       "source": "Environment Canada forecast · Richmond",
       "severity": "priority",
