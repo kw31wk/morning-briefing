@@ -65,7 +65,7 @@ def parse(feedname,url,limit=6):
      it.findtext("{http://purl.org/rss/1.0/modules/content/}encoded") or "",
      it.findtext("{http://www.w3.org/2005/Atom}content") or ""
     ])
-    match=re.search(r'<img[^>]+(?:src|data-src)=["\\']([^"\\']+)["\\']',html_blob,re.I)
+    match=re.search("<img[^>]+(?:src|data-src)=[\\\"']([^\\\"']+)[\\\"']",html_blob,re.I)
     if match and match.group(1).startswith("https://"):
      image_url=match.group(1)
    pub=val("pubDate","published","updated","{http://www.w3.org/2005/Atom}published")
