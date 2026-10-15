@@ -102,12 +102,44 @@ def scrape_events():
    if title.lower() in text.lower() and datetime.fromisoformat(end_date).date() >= today:
     events.append({"title":title,"date":start_date if start_date==end_date else start_date+" to "+end_date,"start_date":start_date,"end_date":end_date,"venue":venue,"time":time,"summary":summary,"url":url,"source":"City of Richmond official calendar"})
   # Library listings are linked in the app; only add entries when dates can be parsed reliably.
-  # Do not add library events without a reliably parsed future date.\n  return events
+  # Do not add library events without a reliably parsed future date.
+  return events
  except Exception as e:
   print("Event calendar unavailable:",str(e)); return []
 data["events"]=scrape_events()
-# No public machine-readable, live emergency-alert feed was verified in this workflow.
-# Be explicit: link to official alert sources without claiming there are no active incidents.
-data["alerts"]=[{"title":"Official emergency information","summary":"This app does not yet verify active emergency alerts automatically. Check Richmond BC Alert and EmergencyInfoBC directly for current warnings and instructions.","url":"https://www.richmond.ca/services/public-safety/emergency-preparedness/notify-me.htm","source":"City of Richmond · official alert information"},{"title":"Provincial emergency alerts","summary":"For province-wide emergency warnings, check the official EmergencyInfoBC updates. This section does not replace Alert Ready or municipal notifications.","url":"https://www.emergencyinfobc.gov.bc.ca/","source":"EmergencyInfoBC"}]
+# Environment and Climate Change Canada official weather-warning feed for Richmond/Delta.
+# If the feed is unavailable, keep a clear warning and official links; never infer "no alerts".
+def weather_alerts():
+ url="https://weather.gc.ca/rss/battleboard/bcrm31_e.xml"
+ try:
+  root=ET.fromstring(get(url))
+  items=root.findall(".//item")
+  if not items:
+   items=root.findall(".//{http://www.w3.org/2005/Atom}entry")
+  found=[]
+  for it in items:
+   title=(it.findtext("title") or it.findtext("{http://www.w3.org/2005/Atom}title") or "").strip()
+   link=(it.findtext("link") or "").strip()
+   if not link:
+    el=it.find("{http://www.w3.org/2005/Atom}link")
+    if el is not None: link=el.attrib.get("href","")
+   desc=(it.findtext("description") or it.findtext("{http://www.w3.org/2005/Atom}summary") or "").strip()
+   desc=re.sub("<[^>]+>"," ",desc)
+   desc=re.sub(r"\\s+"," ",desc).strip()
+   if title and title.lower() not in ("weather alerts","warnings and watches"):
+    found.append({"title":title,"summary":desc[:300] or "Open the official alert for details and instructions.","url":link if link.startswith("http") else "https://weather.gc.ca/","source":"Environment and Climate Change Canada · weather alerts","severity":"weather"})
+  if found: return found[:3], "Environment Canada warning feed checked; municipal emergency notices are linked separately."
+  return [{"title":"No active weather warnings listed in the latest feed","summary":"The latest Environment Canada feed did not list a weather warning for the Richmond/Delta alert region. This does not rule out municipal or other emergency alerts.","url":url,"source":"Environment and Climate Change Canada · feed checked","severity":"info"}], "Environment Canada warning feed checked; municipal emergency notices are linked separately."
+ except Exception as e:
+  print("Weather alert feed unavailable:",str(e))
+  return [{"title":"Check official emergency alerts","summary":"The automatic weather-alert feed could not be checked. Open Environment Canada and Richmond's official alert page to confirm current warnings.","url":"https://weather.gc.ca/warnings/index_e.html?prov=bc","source":"Automatic feed unavailable"},{"title":"Richmond municipal alerts","summary":"Check the City of Richmond's official alert information for local notices and instructions.","url":"https://www.richmond.ca/services/public-safety/emergency-preparedness/notify-me.htm","source":"City of Richmond · official alert information"},{"title":"Provincial emergency alerts","summary":"Check EmergencyInfoBC for current provincial warnings. This app does not replace Alert Ready or municipal notifications.","url":"https://www.emergencyinfobc.gov.bc.ca/","source":"EmergencyInfoBC"}], "Weather warning feed unavailable; check official sources directly."
+
+weather_items, alert_status = weather_alerts()
+data["alerts"] = weather_items + [
+ {"title":"Richmond municipal alerts","summary":"Check the City of Richmond's official alert information for local notices and instructions.","url":"https://www.richmond.ca/services/public-safety/emergency-preparedness/notify-me.htm","source":"City of Richmond · official alert information"},
+ {"title":"Provincial emergency alerts","summary":"Check EmergencyInfoBC for current provincial warnings. This app does not replace Alert Ready or municipal notifications.","url":"https://www.emergencyinfobc.gov.bc.ca/","source":"EmergencyInfoBC"}
+]
+data["alerts"] = data["alerts"][:4]
+data["status"] = alert_status
 with open("data.json","w",encoding="utf-8") as f: json.dump(data,f,ensure_ascii=False,indent=2)
 print("Wrote data.json", {k:len(v) for k,v in data.items() if isinstance(v,list)})
