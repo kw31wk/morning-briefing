@@ -1,4 +1,4 @@
-import json, urllib.request, urllib.error, xml.etree.ElementTree as ET, re
+import json, urllib.request, urllib.error, xml.etree.ElementTree as ET, re, html
 from html.parser import HTMLParser
 from urllib.parse import urljoin
 from datetime import datetime, timezone, timedelta
@@ -87,6 +87,33 @@ for section,feeds in FEEDS.items():
   key=re.sub(r"[^a-z0-9]","",item["title"].lower())
   if key not in seen: seen.add(key); uniq.append(item)
  data[section]=uniq[:8]
+
+# Many RSS feeds omit image enclosures but publisher pages expose a social/preview image.
+# Fetch only the first four articles per section and use a short timeout to keep refresh reliable.
+def article_image(url):
+ try:
+  req=urllib.request.Request(url,headers={"User-Agent":"Mozilla/5.0 (compatible; MorningBriefing/1.0)"})
+  with urllib.request.urlopen(req,timeout=4) as response:
+   page=response.read(250000).decode("utf-8","ignore")
+  for pattern in [
+   r'<meta[^>]+property=["\\']og:image["\\'][^>]+content=["\\']([^"\\']+)["\\']',
+   r'<meta[^>]+content=["\\']([^"\\']+)["\\'][^>]+property=["\\']og:image["\\']',
+   r'<meta[^>]+name=["\\']twitter:image["\\'][^>]+content=["\\']([^"\\']+)["\\']'
+  ]:
+   m=re.search(pattern,page,re.I)
+   if m:
+    candidate=html.unescape(m.group(1)).strip()
+    if candidate.startswith("https://") and not candidate.lower().endswith((".svg",".gif")):
+     return candidate
+ except Exception as e:
+  print("Article image unavailable:",url,str(e))
+ return ""
+
+for section in ("world","local","hk"):
+ for item in data[section][:4]:
+  if not item.get("image"):
+   item["image"]=article_image(item["url"])
+
 # Scrape public City of Richmond calendar page for event candidates; keep dates/links visible for verification.
 class TextPage(HTMLParser):
  def __init__(self):
